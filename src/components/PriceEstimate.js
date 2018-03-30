@@ -14,6 +14,7 @@ import {
   import Data from '../data/data'
   import TextField from 'material-ui/TextField';
   import SearchBar from './SearchBar'
+  import axios from 'axios'
 
 
 const style = {
@@ -22,17 +23,28 @@ const style = {
 
 export default class PriceEstimate extends Component {
 
+    componentDidMount() {
+        axios.get('http://localhost:4200/api/prices')
+        .then( res => {
+            console.log(res)
+            this.setState({
+                prices: res.data
+            })
+        })
+    }
     // added state in order to render search filter. When Textfield is empty the whole state will be displayed. As keys are entered the list reduces
+    // state = {
+    //     prices: []
+    // }  
     state = {
-        prices: Data
-    }    
+       prices: []
+    }
     // imports the JSON object from data.js file and assisngs it to the variable price
     // Data is an array thus should be treated as like.
 
     static propTypes = {
         addPrices: PropTypes.func.isRequired,
     }
-
     // (e) takes the onchange input value from text field -> assigns it to nameTerm -> the state is filtered and nameTerm is used as a parameter to match the exam being filtered -> prices key is assigned the result of examNameFilter
     matchTerms = (e) => {
         const nameTerm = e.target.value
@@ -48,11 +60,11 @@ export default class PriceEstimate extends Component {
     }
 
     render() {
-        return (     
+        {console.log(this.state)}
+        return (            
             <MuiThemeProvider>    
                 <div className="table-container">
                 <SearchBar className="search-bar" matchTerms={this.matchTerms}/>
-                {console.log(this.state.prices)}
                     <Table multiSelectable={true} selectable={true} >
                         <TableBody>
                         {this.state.prices.map((item, key) => {
