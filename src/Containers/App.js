@@ -10,6 +10,7 @@ import PriceEstimate from '../components/PriceEstimate'
 import Clear from '../components/Clear'
 import ExamList from '../components/ExamList'
 import Total from '../components/Total'
+import AppBar from '../components/AppBar'
 import Data from '../data/data'
 
 
@@ -68,8 +69,12 @@ class App extends Component {
       <Total 
       total={sum}/>
      
+    const appBar = <AppBar />
     return (
       <div className="App">
+        <div id="app-bar-container">
+          { appBar }
+        </div>
         <aside>
             { examListComponent }
         </aside>

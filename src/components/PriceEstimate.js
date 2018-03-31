@@ -33,15 +33,11 @@ export default class PriceEstimate extends Component {
         })
     }
     // added state in order to render search filter. When Textfield is empty the whole state will be displayed. As keys are entered the list reduces
-    // state = {
-    //     prices: []
-    // }  
     state = {
        prices: []
     }
     // imports the JSON object from data.js file and assisngs it to the variable price
     // Data is an array thus should be treated as like.
-
     static propTypes = {
         addPrices: PropTypes.func.isRequired,
     }
