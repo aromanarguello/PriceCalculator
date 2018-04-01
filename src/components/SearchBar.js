@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import AutoComplete from 'material-ui/AutoComplete'
+// import AutoComplete from 'material-ui/AutoComplete'
 import TextField from 'material-ui/TextField'
 import * as ActionCreators from '../actions/Actions'
 

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Paper from 'material-ui/Paper';
-import RaisedButton from 'material-ui/RaisedButton'
+// import RaisedButton from 'material-ui/RaisedButton'
 
 const Total = props => {
     return (
