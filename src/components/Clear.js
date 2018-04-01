@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as PlayerActionCreators from '../actions/Actions';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import RaisedButton from 'material-ui/RaisedButton';
+import Button from 'material-ui/Button';
 import App from '../Containers/App'
 
 
@@ -15,11 +15,12 @@ const Clear = props => {
         return (
             <MuiThemeProvider>
             <div className="clear-btn">        
-                <RaisedButton 
-                    backgroundColor="#234082"                
-                    label="Limpiar" 
-                    labelColor="white"
-                    primary={false} 
+                <Button 
+                    // backgroundColor="#234082"                
+                    title="Limpiar" 
+                    // labelColor="white"
+                    // primary={false} 
+                    variant="raised"
                     style={style}
                     onClick={props.clearTotal}
                     />

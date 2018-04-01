@@ -10,7 +10,7 @@ import PriceEstimate from '../components/PriceEstimate'
 import Clear from '../components/Clear'
 import ExamList from '../components/ExamList'
 import Total from '../components/Total'
-import AppBar from '../components/AppBar'
+import AppBar from '../components/AppBarComponents/AppBar'
 import Data from '../data/data'
 
 
