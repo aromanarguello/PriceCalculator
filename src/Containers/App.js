@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { BrowserRouter, Route} from 'react-router-dom'
 import * as ActionCreators from '../actions/Actions'
 import '../App.css';
 import '../SmallLogo.png'
@@ -44,13 +45,6 @@ class App extends Component {
           onClick={() => removeIndividualExams(index)} style={style} />
       </tr>
     </table>)
-      // <p key={index}> {exam.name} - {exam.price} $ 
-      //   <span 
-      //     className="delete-side-marker" 
-      //     onClick={() => removeIndividualExams(index)}>
-      //     <Ionicon icon="ios-remove-circle" fontSize="22px" color="red" style={style}/>
-      //   </span> 
-      // </p>)
 
     const priceComponent = 
       <PriceEstimate addPrices={addPrices} />
@@ -71,6 +65,7 @@ class App extends Component {
      
     const appBar = <AppBar />
     return (
+      <BrowserRouter>
       <div className="App">
         <div id="app-bar-container">
           { appBar }
@@ -82,15 +77,16 @@ class App extends Component {
           <img src={require('../SmallLogo.png')} alt="logo" id="logo" />
           <div className='price-container'>
             {/* displays the total sum of added prices */}
-            { totalComponent }
+            <Route path="/examenes" render={ () => totalComponent } />
           </div>
-          { clearComponent }
+          <Route path="/examenes" render={ () => clearComponent } />
         </div>
         <div className="main-container">
         {/* Component that displays list of exmas */}
-          { priceComponent }
+          <Route path="/examenes" render={ () => priceComponent } />
         </div>
       </div>
+      </BrowserRouter>
     );
   };
 }

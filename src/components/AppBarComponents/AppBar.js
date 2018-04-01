@@ -25,15 +25,15 @@ function ButtonAppBar(props) {
   const { classes } = props;
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" color="inherit">
         <Toolbar>
-          <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
+          <IconButton className={classes.menuButton} color="primary" aria-label="Menu">
             <MenuIcon />
           </IconButton>
-          <Typography variant="title" color="inherit" className={classes.flex}>
-            Title
+          <Typography variant="title" color="primary" className={classes.flex}>
+            Menu
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Button color="primary">Login</Button>
         </Toolbar>
       </AppBar>
     </div>
