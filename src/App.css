@@ -63,6 +63,7 @@ aside {
   height: 500px;
   width: 280px;
   display: flex;
+  justify-content: space-around;
   position: fixed;
   margin-left: 10px;
 }
