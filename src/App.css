@@ -43,7 +43,6 @@ table {
 .price-container {
   width: 140px;
   height: 140px;
-  border-bottom: 10px solid rgba(36, 160, 236, 0.5);
   display: flex;
   align-self: flex-end;
   margin: 0 0 70px 0;
@@ -57,6 +56,13 @@ table {
 .clear-btn {
   display: flex;
   align-self: flex-end;
+}
+
+#side-exam-list-container {
+  width:100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
 }
 
 aside {
