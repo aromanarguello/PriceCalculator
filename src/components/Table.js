@@ -26,7 +26,7 @@ function SimpleTable(props) {
       <Table className={classes.table}>
         <TableHead>
           <TableRow>
-          <TableCell>Examen</TableCell>
+          <TableCell >Examen</TableCell>
           <TableCell numeric>Precio</TableCell>
           </TableRow>
         </TableHead>
@@ -35,9 +35,10 @@ function SimpleTable(props) {
           {props.state.prices.map(n => {
             return (
               <TableRow key={n.id}>
-                <TableCell numeric>{n.name}</TableCell>
+                <TableCell >{n.name}</TableCell>
                 <TableCell numeric>                            
                 <Button 
+                  color="primary"
                   key={n.id}
                   title={n.price}
                   // primary={true} 
@@ -45,7 +46,7 @@ function SimpleTable(props) {
                   type="submit"
                   // functions allows me to pass in the (item price and name as parameter)   
                   onClick={() => props.addPrices(n.price, n.name)}
-                  />   
+                  >{n.price}</Button>   
                 </TableCell>
               </TableRow>
             );

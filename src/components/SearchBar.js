@@ -21,7 +21,7 @@ export default class SearchBar extends Component {
         return (
         <MuiThemeProvider>
             <TextField 
-                hintText="Busque su examen aqui" 
+                placeholder="Busque su examen aqui" 
                 onChange={this.props.matchTerms} className="search-bar"
                 style={style} />
         </MuiThemeProvider>
