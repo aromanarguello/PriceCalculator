@@ -63,7 +63,7 @@ class TextFields extends Component {
             
             <TextField
                 id="password-input"
-                label="Password"
+                label="contraseña"
                 className={classes.textField}
                 type="password"
                 autoComplete="current-password"
@@ -74,6 +74,7 @@ class TextFields extends Component {
         </CardContent>
         <CardActions>
           <Button size="small">Registrarse</Button>
+          <Button size="small">Ayuda</Button>
         </CardActions>
       </Card>
     </div>

@@ -85,7 +85,7 @@ class App extends Component {
           <div className="main-container">
             {/* Component that displays list of exams */}
             <Route path="/examenes" render={() => priceComponent} />
-            <Route path="/" render={() => loginComponent } />
+            <Route exact path="/" render={() => loginComponent } />
           </div>
         </div>
       </BrowserRouter>
