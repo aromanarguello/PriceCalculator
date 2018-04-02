@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { NavLink } from 'react-router-dom'
 import { withStyles } from 'material-ui/styles';
 import MenuItem from 'material-ui/Menu/MenuItem';
 import TextField from 'material-ui/TextField';
@@ -73,7 +74,7 @@ class TextFields extends Component {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small">Registrarse</Button>
+          <Button size="small"><NavLink to="/registrarse" className="links" >Registrarse</NavLink></Button>
           <Button size="small">Ayuda</Button>
         </CardActions>
       </Card>

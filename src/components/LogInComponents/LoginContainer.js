@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { BrowserRouter, Route } from 'react-router-dom'
-import Login from './Login'
+import LoginComponent from './Login'
+import RegisterComponent from './Register'
 
 const LogIn = () => {
     return (
         <div id="login-container">
-            <Login />
+            <LoginComponent />
         </div>
     )
 }

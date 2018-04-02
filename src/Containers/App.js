@@ -13,6 +13,7 @@ import ExamList from '../components/ExamList'
 import Total from '../components/Total'
 import AppBar from '../components/AppBarComponents/AppBar'
 import LoginContainer from '../components/LogInComponents/LoginContainer'
+import RegisterComponent from '../components/LogInComponents/Register'
 import Data from '../data/data'
 
 
@@ -60,7 +61,8 @@ class App extends Component {
 
     const totalComponent = <Total total={sum} />
 
-    const loginComponent = <LoginContainer />
+    const loginContainer = <LoginContainer />
+    const registerComponent = <RegisterComponent />
 
     const appBar = <AppBar />
     return (
@@ -85,7 +87,8 @@ class App extends Component {
           <div className="main-container">
             {/* Component that displays list of exams */}
             <Route path="/examenes" render={() => priceComponent} />
-            <Route exact path="/" render={() => loginComponent } />
+            <Route exact path="/" render={() => loginContainer } />
+            <Route path="/registrarse" render={ () => registerComponent } />
           </div>
         </div>
       </BrowserRouter>

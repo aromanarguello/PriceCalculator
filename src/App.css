@@ -109,3 +109,9 @@ h1 {
 
 .icon-delete-examlist {
 }
+
+.links,
+.links:visited {
+  text-decoration: none;
+  color: black;
+}

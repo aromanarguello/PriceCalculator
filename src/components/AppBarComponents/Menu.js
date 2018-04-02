@@ -42,8 +42,8 @@ class SimpleMenu extends Component {
           open={Boolean(anchorEl)}
           onClose={this.handleClose}
         >
-          <MenuItem onClick={this.handleClose}><NavLink to="/">Principal</NavLink></MenuItem>
-          <MenuItem onClick={this.handleClose}><NavLink to="/examenes">Examenes</NavLink></MenuItem>
+          <MenuItem onClick={this.handleClose}><NavLink className="links" to="/">Principal</NavLink></MenuItem>
+          <MenuItem onClick={this.handleClose}><NavLink className="links" to="/examenes">Examenes</NavLink></MenuItem>
           <MenuItem onClick={this.handleClose}>Logout</MenuItem>
         </Menu>
       </div>
