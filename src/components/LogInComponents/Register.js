@@ -51,7 +51,7 @@ class TextFields extends Component {
                     id="first-name-input"
                     label="Primer Nombre"
                     className={classes.textField}
-                    type="password"
+                    type="text"
                     autoComplete="current-password"
                     margin="normal"
                 />
@@ -63,7 +63,7 @@ class TextFields extends Component {
                     id="last-name-input"
                     label="Apellido"
                     className={classes.textField}
-                    type="password"
+                    type="text"
                     autoComplete="current-password"
                     margin="normal"
                 />

@@ -2,7 +2,7 @@ import * as ActionTypes from '../actiontypes/ActionTypes'
 import Data from '../components/PriceEstimate'
 
 
-export const updateEstimator = (total) => {
+export const updateEstimator = total => {
     return {
         type: ActionTypes.UPDATE_ESTIMATOR,
     }

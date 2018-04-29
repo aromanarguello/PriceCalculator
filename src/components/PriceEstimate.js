@@ -1,21 +1,3 @@
-// import React, { Component } from 'react';
-// import PropTypes from 'prop-types'
-// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-// import Button from 'material-ui/Button'
-// import {
-//     Table,
-//     TableBody,
-//     TableHeader,
-//     TableHeaderColumn,
-//     TableRow,
-//     TableRowColumn,
-//   } from 'material-ui/Table'
-//   import App from '../Containers/App'
-//   import Data from '../data/data'
-//   import TextField from 'material-ui/TextField';
-//   import SearchBar from './SearchBar'
-
-
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
@@ -73,37 +55,7 @@ export default class PriceEstimate extends Component {
             <InteractiveGrids
               state={this.state} 
               addPrices={this.props.addPrices}/>     
-            </div>      
-            // <MuiThemeProvider>    
-            //     <div className="table-container">
-            //     <SearchBar className="search-bar" matchTerms={this.matchTerms}/>
-            //         <Table multiSelectable={true} selectable={true} >
-            //             <TableBody>
-            //             {this.state.prices.map((item, key) => {
-            //                 return (
-            //                     <TableRow key={key}>
-            //                         <TableRowColumn 
-            //                             className="exam-cells">
-            //                             {item.name}
-            //                         </TableRowColumn>
-            //                         <TableRowColumn className="price-cells" >
-            //                             <Button 
-            //                                 key={item.id}
-            //                                 title={item.price}
-            //                                 // primary={true} 
-            //                                 style={style}
-            //                                 type="submit"
-            //                                 // functions allows me to pass in the (item price and name as parameter)   
-            //                                 onClick={() =>this.props.addPrices(item.price, item.name)}
-            //                                 />    
-            //                         </TableRowColumn>                               
-            //                     </TableRow>
-            //                 )
-            //             })}
-            //             </TableBody>
-            //         </Table>
-            //     </div>
-            // </MuiThemeProvider>
+            </div>
         )
     }
 }
