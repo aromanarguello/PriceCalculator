@@ -21,10 +21,10 @@ class App extends Component {
 
   render() {
     const { dispatch, total } = this.props;
-    const updateEstimator = bindActionCreators(ActionCreators.updateEstimator, dispatch);
-    const clearTotal = bindActionCreators(ActionCreators.clearTotal, dispatch);
-    const dataCarryName = bindActionCreators(ActionCreators.dataCarry, dispatch);
-    const addPrices = bindActionCreators(ActionCreators.addPrices, dispatch);
+    const updateEstimator = bindActionCreators(ActionCreators.updateEstimator, dispatch)
+    const clearTotal = bindActionCreators(ActionCreators.clearTotal, dispatch)
+    const dataCarryName = bindActionCreators(ActionCreators.dataCarry, dispatch)
+    const addPrices = bindActionCreators(ActionCreators.addPrices, dispatch)
     const removeExams = bindActionCreators(ActionCreators.removeExams, dispatch)
     const removeIndividualExams = bindActionCreators(ActionCreators.removeIndividualExams, dispatch)
 

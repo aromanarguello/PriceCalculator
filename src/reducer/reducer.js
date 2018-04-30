@@ -1,10 +1,6 @@
 import * as ActionTypes from '../actiontypes/ActionTypes'
-import prices from '../components/PriceEstimate'
-import data from '../data/data'
-
 
 const initialState = []
-
 
 export default function Action( state = initialState, action ) {
     switch(action.type) {
@@ -30,6 +26,13 @@ export default function Action( state = initialState, action ) {
                 ...state.slice(0, action.index),
                 ...state.slice(action.index + 1)
             ]
-        default: {return state};
+        case ActionTypes.REGISTER_USER:
+            return [
+                {
+                    isLoggedIn: state[0].isLoggedIn,
+                    token: state[0].token
+                }
+            ]
+        default: { return state };
     }   
 } 

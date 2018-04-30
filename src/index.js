@@ -11,7 +11,7 @@ import registerServiceWorker from './registerServiceWorker';
 
 // the store is connected to the reducer file and the initial state
 const store = createStore(
-    Reducer,
+    Reducer
 );
 render(
     <Provider store={store}>
