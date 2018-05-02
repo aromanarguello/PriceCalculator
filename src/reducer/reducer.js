@@ -26,13 +26,6 @@ export default function Action( state = initialState, action ) {
                 ...state.slice(0, action.index),
                 ...state.slice(action.index + 1)
             ]
-        case ActionTypes.REGISTER_USER:
-            return [
-                {
-                    isLoggedIn: state[0].isLoggedIn,
-                    token: state[0].token
-                }
-            ]
         default: { return state };
     }   
 } 

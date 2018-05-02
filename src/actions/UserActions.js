@@ -1,8 +1,12 @@
 import * as ActionTypes from '../actiontypes/ActionTypes'
 
-export const userRegistration = user => {
+export const userRegistration = (username, password, firstName, lastName, email) => {
     return {
         type: ActionTypes.REGISTER_USER,
+        username: username,
+        password: password,
+        firstName: firstName,
+        email: email
     }
 }
 

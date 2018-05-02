@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { BrowserRouter, Route } from 'react-router-dom'
 import * as ActionCreators from '../actions/Actions'
+import * as UserActions from '../actions/UserActions'
 import '../App.css';
 import '../SmallLogo.png'
 import Ionicon from 'react-ionicons'
@@ -27,6 +28,8 @@ class App extends Component {
     const addPrices = bindActionCreators(ActionCreators.addPrices, dispatch)
     const removeExams = bindActionCreators(ActionCreators.removeExams, dispatch)
     const removeIndividualExams = bindActionCreators(ActionCreators.removeIndividualExams, dispatch)
+    const registerUser = bindActionCreators(UserActions.userRegistration, dispatch)
+    const userLogin = bindActionCreators(UserActions.userLogin, dispatch)
 
     const style = {
       marginLeft: 12,
@@ -48,6 +51,8 @@ class App extends Component {
         </tr>
       </table>)
 
+    const register = registerUser()
+
     const priceComponent = <PriceEstimate addPrices={addPrices} />
 
     const clearComponent = <Clear clearTotal={clearTotal} />
@@ -61,7 +66,7 @@ class App extends Component {
 
     const totalComponent = <Total total={sum} />
 
-    const loginContainer = <LoginContainer />
+    const loginContainer = <LoginContainer register={registerUser} />
     const registerComponent = <RegisterComponent />
 
     const appBar = <AppBar />

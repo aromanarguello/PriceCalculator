@@ -9,18 +9,36 @@ import LoginComponent from './Login'
 import RegisterComponent from './Register'
 
 class LoginContainer extends Component {
-    constructor(props) {
-        super(props)
-    }
 
     state = {
+        firstName: '',
+        lastName: '',
+        userName: '',
+        password: '',
+        email: '',
         loggedIn: false
     }
 
+    handleChange = e => {
+        const { name, value } = e.target
+        this.setState({ [name]: value })
+    }
+
+    handleSubmit = e => {
+        const { username, password, firstName, lastName, email } = this.state;
+        if(username && password && firstName && lastName && email) {
+            this.setState({ 
+                firstName: this.state.firstName,
+                lastName: this.state.lastName,
+                email: this.state.email,
+                loggedIn: true 
+            })
+        }
+    }
     render() {
-        const { dispatch, total } = this.props;
-        const registerUser = bindActionCreators(UserActions.userRegistration, dispatch)
-        const userLogin = bindActionCreators(UserActions.userLogin, dispatch)
+        const register = this.handleSubmit()
+        const change = this.handleChange
+
         return (
             <div id="login-container">
             {
@@ -33,8 +51,9 @@ class LoginContainer extends Component {
 
 function mapStateToProps(state, user) {
     return {
-        state
+        state,
+        user
     }
 }
 
-export default connect(mapStateToProps)(LoginContainer)
+export default LoginContainer

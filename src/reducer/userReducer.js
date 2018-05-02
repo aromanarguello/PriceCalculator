@@ -8,8 +8,8 @@
 //         case ActionTypes.REGISTER_USER:
 //             return [
 //                 {
-//                     isLoggedIn: state[0].isLoggedIn,
-//                     token: state[0].token
+//                     ...state[0].isLoggedIn,
+//                     ...state[0].token
 //                 }
 //             ]
 //             default: { return state };
