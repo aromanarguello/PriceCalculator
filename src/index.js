@@ -2,21 +2,20 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { connect } from 'react-redux'
-import { createStore, applyMiddleware, combineReducers } from 'redux';
-import { composeWithDevTools, devToolsEnhancer } from 'redux-devtools-extension'
-import Reducer from '../src/reducer/reducer';
-import App from './Containers/App'
+import promise from 'redux-promise';
+import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools, devToolsEnhancer } from 'redux-devtools-extension';
+import reducers from '../src/reducer/reducer';
+import App from './Containers/App';
 import registerServiceWorker from './registerServiceWorker';
 
 // pass Reducer and  UserReducer as arguments to combine reducers
 // const combineRdx = combineReducers({ Reducer, UserReducer})
 
-// the store is connected to the reducer file and the initial state
-const store = createStore(
-    Reducer
-);
+const createStoreWithMiddleWare = applyMiddleware(promise)(createStore)
+
 render(
-    <Provider store={store}>
+    <Provider store={createStoreWithMiddleWare(reducers)}>
         <App />
     </Provider>,
     document.getElementById('root')
