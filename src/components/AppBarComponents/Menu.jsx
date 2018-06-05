@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Button from 'material-ui/Button';
-import Menu, { MenuItem } from 'material-ui/Menu';
-import IconButton from 'material-ui/IconButton';
-import MenuIcon from 'material-ui-icons/Menu';
+import Button from '@material-ui/core/Button';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem'
+import IconButton from '@material-ui/core/IconButton';
+// import MenuIcon from '@material-ui/core/Menu';
 import { NavLink } from 'react-router-dom'
 
 class SimpleMenu extends Component {
@@ -30,11 +31,7 @@ class SimpleMenu extends Component {
         <Button
           aria-owns={anchorEl ? 'simple-menu' : null}
           aria-haspopup="true"
-          onClick={this.handleClick}
-        >
-          <IconButton color="primary" aria-label="Menu">
-            <MenuIcon />
-          </IconButton>
+          onClick={this.handleClick}>
         </Button>
         <Menu
           id="simple-menu"

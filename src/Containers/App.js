@@ -5,11 +5,11 @@ import { connect } from 'react-redux'
 import { BrowserRouter, Route } from 'react-router-dom'
 import * as ActionCreators from '../actions/Actions'
 import '../App.css';
-import '../SmallLogo.png'
+import Logo from '../SmallLogo.png'
 import Ionicon from 'react-ionicons'
 import PriceEstimate from '../components/PriceEstimate'
 import Clear from '../components/Clear'
-import ExamList from '../components/ExamList'
+import SideExamList from '../components/SideExamList/SideExamList'
 import Total from '../components/Total'
 import AppBar from '../components/AppBarComponents/AppBar'
 import LoginContainer from '../components/LogInComponents/LoginContainer'
@@ -27,6 +27,7 @@ class App extends Component {
     const addPrices = bindActionCreators(ActionCreators.addPrices, dispatch)
     const removeExams = bindActionCreators(ActionCreators.removeExams, dispatch)
     const removeIndividualExams = bindActionCreators(ActionCreators.removeIndividualExams, dispatch)
+    const createOrder = bindActionCreators(ActionCreators.createOrder, dispatch)
 
     const style = {
       marginLeft: 12,
@@ -48,50 +49,35 @@ class App extends Component {
         </tr>
       </table>)
 
-    const priceComponent = <PriceEstimate addPrices={addPrices} />
-
-    const clearComponent = <Clear clearTotal={clearTotal} />
-
-    const examListComponent =
-      <ExamList
-        dataCarryName={names}
-        removeExams={removeExams}
-        total={sum}
-      />
-
-    const totalComponent = <Total total={sum} />
-
-    const loginContainer = <LoginContainer />
-    const registerComponent = <RegisterComponent />
-
-    const appBar = <AppBar />
     return (
-      <BrowserRouter>
+      
         <div className="App">
           <div id="app-bar-container">
-            {appBar}
+            <AppBar />
           </div>
           <div id="side-exam-list-container">
             <aside>
-              {examListComponent}
+              <SideExamList
+                dataCarryName={names}
+                removeExams={removeExams}
+                total={sum}
+                createOrder={createOrder}
+              />
             </aside>
           </div>
           <div className="header-container">
-            <img src={require('../SmallLogo.png')} alt="logo" id="logo" />
+            <img src={Logo} alt="logo" id="logo" />
             <div className='price-container'>
               {/* displays the total sum of added prices */}
-              <Route path="/examenes" render={() => totalComponent} />
+              <Total total={sum} />
             </div>
-            <Route path="/examenes" render={() => clearComponent} />
+            <Clear clearTotal={clearTotal} />
           </div>
           <div className="main-container">
             {/* Component that displays list of exams */}
-            <Route path="/examenes" render={() => priceComponent} />
-            <Route exact path="/" render={() => loginContainer } />
-            <Route path="/registrarse" render={ () => registerComponent } />
+            <PriceEstimate addPrices={addPrices} />
           </div>
         </div>
-      </BrowserRouter>
     );
   };
 }

@@ -1,5 +1,5 @@
 import * as ActionTypes from '../actiontypes/ActionTypes'
-import Data from '../components/PriceEstimate'
+import axios from 'axios'
 
 
 export const updateEstimator = total => {
@@ -38,9 +38,17 @@ export const removeExams = state => {
     }
 }
 
-export const removeIndividualExams = (index) => {
+export const removeIndividualExams = index => {
     return {
         type: ActionTypes.REMOVE_INDVIDUAL_EXAM,
         index
     }
 }
+
+export const createOrder = (state) => {
+    // const request = axios.post('', values).then( () => callback())
+    return {
+        type: ActionTypes.CREATE_ORDER,
+        payload: state
+    }
+ }

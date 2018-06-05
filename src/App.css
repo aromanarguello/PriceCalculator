@@ -57,13 +57,12 @@ table {
   display: flex;
   align-self: flex-end;
 }
-
+/* 
 #side-exam-list-container {
   width:100%;
   display: flex;
   justify-content: flex-end;
-  margin-right: 30px;
-}
+} */
 
 aside {
   height: 500px;
