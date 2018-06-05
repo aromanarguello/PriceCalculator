@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as ActionCreators from '../../actions/Actions'
-import * as UserActions from '../../actions/UserActions'
 import PropTypes from 'prop-types'
 import { BrowserRouter, Route } from 'react-router-dom'
 import LoginComponent from './Login'
@@ -31,6 +30,7 @@ class LoginContainer extends Component {
                 firstName: this.state.firstName,
                 lastName: this.state.lastName,
                 email: this.state.email,
+                password: this.state.password,
                 loggedIn: true 
             })
         }
@@ -42,18 +42,16 @@ class LoginContainer extends Component {
         return (
             <div id="login-container">
             {
-                this.state.loggedIn === false ? ( <LoginComponent />) : (<RegisterComponent />)
+                this.state.loggedIn === false 
+                ? ( <LoginComponent />) 
+                : (<RegisterComponent 
+                    register={register}
+                    change={change} />)
             }
             </div>
         )
     }
 }
 
-function mapStateToProps(state, user) {
-    return {
-        state,
-        user
-    }
-}
 
 export default LoginContainer

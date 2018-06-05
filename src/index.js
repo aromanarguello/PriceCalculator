@@ -5,8 +5,7 @@ import { connect } from 'react-redux'
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { composeWithDevTools, devToolsEnhancer } from 'redux-devtools-extension'
 import Reducer from '../src/reducer/reducer';
-import UserReducer from '../src/reducer/userReducer';
-import App from './Containers/App';
+import App from './Containers/App'
 import registerServiceWorker from './registerServiceWorker';
 
 // pass Reducer and  UserReducer as arguments to combine reducers
