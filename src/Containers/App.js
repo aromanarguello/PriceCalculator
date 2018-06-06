@@ -1,53 +1,19 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { BrowserRouter, Route } from 'react-router-dom'
 import * as ActionCreators from '../actions/Actions'
 import '../App.css';
 import Logo from '../SmallLogo.png'
-import Ionicon from 'react-ionicons'
-import PriceEstimate from '../components/PriceEstimate'
-import Clear from '../components/Clear'
-import SideExamList from '../components/SideExamList/SideExamList'
-import Total from '../components/Total'
-import AppBar from '../components/AppBarComponents/AppBar'
-import LoginContainer from '../components/LogInComponents/LoginContainer'
-import RegisterComponent from '../components/LogInComponents/Register'
-import Data from '../data/data'
-
+import { Clear, SideExamList, Total, AppBar, PriceEstimate } from '../components/index'
 
 class App extends Component {
 
   render() {
-    const { dispatch, total } = this.props;
-    const updateEstimator = bindActionCreators(ActionCreators.updateEstimator, dispatch)
+    const { dispatch } = this.props;
     const clearTotal = bindActionCreators(ActionCreators.clearTotal, dispatch)
-    const dataCarryName = bindActionCreators(ActionCreators.dataCarry, dispatch)
-    const addPrices = bindActionCreators(ActionCreators.addPrices, dispatch)
-    const removeExams = bindActionCreators(ActionCreators.removeExams, dispatch)
-    const removeIndividualExams = bindActionCreators(ActionCreators.removeIndividualExams, dispatch)
-    const createOrder = bindActionCreators(ActionCreators.createOrder, dispatch)
-
-    const style = {
-      marginLeft: 12,
-    }
 
     // sum adds each exam through reduce to produce a total
     const sum = this.props.state.reduce((sum, exam) => sum + exam.price, 0)
-    // names maps to produce each name on the side list when triggered by add price
-    // removeIndividualExams removes the exam name and price by clicking on the 'X'
-    const names = this.props.state.map((exam, index) =>
-      <table className="btn-delete-examlist-container" key={index}>
-        <tr>{exam.name} - {exam.price}</tr>
-        <tr className="icon-delete-examlist">
-          <Ionicon
-            icon="ios-remove-circle"
-            fontSize="18px"
-            color="red"
-            onClick={() => removeIndividualExams(index)} style={style} />
-        </tr>
-      </table>)
 
     return (
       
@@ -57,12 +23,7 @@ class App extends Component {
           </div>
           <div id="side-exam-list-container">
             <aside>
-              <SideExamList
-                dataCarryName={names}
-                removeExams={removeExams}
-                total={sum}
-                createOrder={createOrder}
-              />
+              <SideExamList />
             </aside>
           </div>
           <div className="header-container">
@@ -75,7 +36,7 @@ class App extends Component {
           </div>
           <div className="main-container">
             {/* Component that displays list of exams */}
-            <PriceEstimate addPrices={addPrices} />
+            <PriceEstimate />
           </div>
         </div>
     );

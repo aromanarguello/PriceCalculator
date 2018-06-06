@@ -101,14 +101,6 @@ h1 {
   font-family: 'Roboto', sans-serif;
 }
 
-.btn-delete-examlist-container {
-  display: flex;
-  justify-content: space-between;
-}
-
-.icon-delete-examlist {
-}
-
 .links,
 .links:visited {
   text-decoration: none;

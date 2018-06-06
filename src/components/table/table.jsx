@@ -8,7 +8,6 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Button from '@material-ui/core/Button'
 import Paper from '@material-ui/core/Paper';
-import App from '../Containers/App'
 
 const styles = theme => ({
   root: {
@@ -42,7 +41,7 @@ function SimpleTable(props) {
                 <TableCell numeric>                            
                 <Button 
                   color="primary"
-                  key={n.id}
+                  key={n.price}
                   title={n.price}
                   // primary={true} 
                   variant="raised"

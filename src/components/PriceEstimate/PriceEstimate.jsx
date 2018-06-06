@@ -1,22 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import { addPrices } from '../../actions/Actions';
+import { SearchBar, InteractiveGrids } from '../index'
+import { connect } from 'react-redux';
 import axios from 'axios'
-import SearchBar from './SearchBar'
-import InteractiveGrids from './Table'
-import App from '../Containers/App'
 
 const style = {
     margin: 12,
   };
 
-export default class PriceEstimate extends Component {
+class PriceEstimate extends Component {
+    // added state in order to render search filter. When Textfield is empty the whole state will be displayed. As keys are entered the list reduces
+    state = {
+        prices: []
+    }
 
     componentDidMount() {
         axios.get('http://localhost:4200/api/prices')
@@ -27,10 +24,7 @@ export default class PriceEstimate extends Component {
             })
         })
     }
-    // added state in order to render search filter. When Textfield is empty the whole state will be displayed. As keys are entered the list reduces
-    state = {
-       prices: []
-    }
+
     // imports the JSON object from data.js file and assisngs it to the variable price
     // Data is an array thus should be treated as like.
     static propTypes = {
@@ -61,3 +55,11 @@ export default class PriceEstimate extends Component {
         )
     }
 }
+
+function mapStateToProps(state) {
+    return {
+        state
+    }
+}
+
+export default connect(mapStateToProps, { addPrices })(PriceEstimate)

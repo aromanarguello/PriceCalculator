@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import * as PlayerActionCreators from '../actions/Actions';
+import * as PlayerActionCreators from '../../actions/Actions';
 import Button from '@material-ui/core/Button';
-import App from '../Containers/App'
+import App from '../../Containers/App'
 
 
 const style = {

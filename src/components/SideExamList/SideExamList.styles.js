@@ -1,6 +1,6 @@
 export const styles = {
     paperCard: {
-        margin: '0 0 0 25px',
+        margin: '0 0 0 10px',
         fontSize: '20px',
         width: '300px'
     } 
