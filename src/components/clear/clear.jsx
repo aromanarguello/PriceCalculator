@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as PlayerActionCreators from '../../actions/Actions';
 import Button from '@material-ui/core/Button';
-import App from '../../Containers/App'
+import ExamContainer from '../../Containers/ExamContainer'
 
 
 const style = {
