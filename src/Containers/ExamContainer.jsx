@@ -7,7 +7,13 @@ import Logo from '../SmallLogo.png'
 import { Clear, SideExamList, Total, AppBar, PriceEstimate } from '../components/index'
 
 class App extends Component {
-
+  renderList() {
+      if(this.props.auth) {
+        return (
+          <PriceEstimate />
+        )
+      }
+  }
   render() {
     const { dispatch } = this.props;
     const clearTotal = bindActionCreators(ActionCreators.clearTotal, dispatch)
@@ -36,16 +42,17 @@ class App extends Component {
           </div>
           <div className="main-container">
             {/* Component that displays list of exams */}
-            <PriceEstimate />
+            {this.renderList()}
           </div>
         </div>
     );
   };
 }
 
-function mapStateToProps(state, name) {
+function mapStateToProps(state) {
   return {
-    state
+    state,
+    auth: state.auth
   };
 }
 

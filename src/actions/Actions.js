@@ -52,3 +52,10 @@ export const createOrder = (state) => {
         payload: state
     }
  }
+
+ export const changeAuth = isLoggedIn => {
+    return { 
+        type: ActionTypes.CHANGE_AUTH,
+        payload: isLoggedIn
+    }
+ }

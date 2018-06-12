@@ -5,7 +5,6 @@ export const styles = {
         margin: '0 0 0 0',
         display: 'flex',
         justifyContent: 'center',
-        opacity: 0.5
     },
 
     profileImageContainer: {
