@@ -1,6 +1,4 @@
 import * as ActionTypes from '../actiontypes/ActionTypes'
-import axios from 'axios'
-
 
 export const updateEstimator = total => {
     return {

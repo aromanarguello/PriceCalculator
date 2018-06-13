@@ -40,7 +40,8 @@ class SimpleMenu extends Component {
           onClose={this.handleClose}
         >
           <MenuItem onClick={this.handleClose}><NavLink className="links" to="/">Principal</NavLink></MenuItem>
-          <MenuItem onClick={this.handleClose}><NavLink className="links" to="/examenes">Examenes</NavLink></MenuItem>
+          {/* <MenuItem onClick={this.handleClose}><NavLink className="links" to="/">Examenes</NavLink></MenuItem> */}
+          <MenuItem onClick={this.handleClose}><NavLink className="links" to="/perfil">Perfil</NavLink></MenuItem>
           <MenuItem onClick={this.handleClose}>Logout</MenuItem>
         </Menu>
       </div>

@@ -46,17 +46,15 @@ class ButtonAppBar extends Component {
     <div className={classes.root}>
         <AppBar position="static" color="inherit">
           <Toolbar>
-            {/* <IconButton className={classes.menuButton} color="primary" aria-label="Menu">
-              <MenuIcon />
-            </IconButton> */}
+            <IconButton className={classes.menuButton} color="primary" aria-label="Menu">
+            </IconButton>
             <MenuComponent />
             <Typography variant="title" color="primary" className={classes.flex}>
               Menu
             </Typography>
-
+            {this.renderButton()}
           </Toolbar>
         </AppBar>
-        {this.renderButton()}
       </div>
     );
   }
@@ -64,6 +62,7 @@ class ButtonAppBar extends Component {
 
 
 function mapStateToProps(state) {
+  console.log(state)
   return {
     auth: state.auth
   }
