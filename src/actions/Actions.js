@@ -54,6 +54,7 @@ export const createOrder = (state) => {
  }
 
  export const changeAuth = isLoggedIn => {
+     console.log(isLoggedIn)
     return { 
         type: ActionTypes.CHANGE_AUTH,
         payload: isLoggedIn

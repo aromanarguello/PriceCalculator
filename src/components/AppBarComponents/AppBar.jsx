@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, {Component} from 'react';
+import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -9,6 +9,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem'
 import MenuComponent from './Menu'
+import * as actions from '../../actions/Actions'
 
 const styles = {
   root: {
@@ -23,28 +24,48 @@ const styles = {
   },
 };
 
-function ButtonAppBar(props) {
-  const { classes } = props;
+class ButtonAppBar extends Component {
+  renderButton() {
+    if(this.props.auth) {
+      return (
+        <button onClick={ () => this.props.changeAuth(true) }>Cerrar Sesion</button>
+      )
+    } else {
+      return (
+        <button onClick={ () => this.props.changeAuth(false) }>Iniciar Sesion</button>
+      )
+    }
+  }
+
+  componentDidMount() {
+    console.log(this.props.auth)
+  }
+  render() {
+  const { classes } = this.props;
   return (
     <div className={classes.root}>
-      <AppBar position="static" color="inherit">
-        <Toolbar>
-          {/* <IconButton className={classes.menuButton} color="primary" aria-label="Menu">
-            <MenuIcon />
-          </IconButton> */}
-          <MenuComponent />
-          <Typography variant="title" color="primary" className={classes.flex}>
-            Menu
-          </Typography>
-          <Button color="primary">Cerrar Sesion</Button>
-        </Toolbar>
-      </AppBar>
-    </div>
-  );
+        <AppBar position="static" color="inherit">
+          <Toolbar>
+            {/* <IconButton className={classes.menuButton} color="primary" aria-label="Menu">
+              <MenuIcon />
+            </IconButton> */}
+            <MenuComponent />
+            <Typography variant="title" color="primary" className={classes.flex}>
+              Menu
+            </Typography>
+
+          </Toolbar>
+        </AppBar>
+        {this.renderButton()}
+      </div>
+    );
+  }
 }
 
-ButtonAppBar.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
 
-export default withStyles(styles)(ButtonAppBar);
+function mapStateToProps(state) {
+  return {
+    auth: state.auth
+  }
+}
+export default connect(mapStateToProps, actions)(withStyles(styles)(ButtonAppBar));

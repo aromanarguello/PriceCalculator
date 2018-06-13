@@ -8,7 +8,7 @@ import { Clear, SideExamList, Total, AppBar, PriceEstimate } from '../components
 
 class App extends Component {
   renderList() {
-      if(this.props.auth) {
+      if(!this.props.auth) {
         return (
           <PriceEstimate />
         )
