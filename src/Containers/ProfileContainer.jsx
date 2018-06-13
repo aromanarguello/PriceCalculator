@@ -12,7 +12,7 @@ class ProfileContainer extends Component {
                 </div>
                 <div id="profileCardContainer" style={styles.profileCard}>
                     <aside>
-                        <ProfileCard />
+                    <ProfileCard />
                     </aside>
                 </div>
             </div>
