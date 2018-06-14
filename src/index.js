@@ -1,22 +1,21 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import promise from 'redux-promise';
-import reducers from '../src/reducer/reducer';
-import { ExamContainer, ProfileContainer } from './Containers/index'
-
-const createStoreWithMiddleWare = applyMiddleware(promise)(createStore)
+import { ExamContainer, ProfileContainer } from './Containers/index';
+import Root from './root';
 
 render(
-    <Provider store={createStoreWithMiddleWare(reducers)}>
+    <Root>
         <BrowserRouter>
             <Switch>
-                <Route path='/' exact component={ExamContainer}/>
+                <Route path='/examenes' exact component={ExamContainer}/>
                 <Route path='/perfil' component={ProfileContainer}/>
             </Switch>
         </BrowserRouter>
-    </Provider>,
+    </Root>,
     document.getElementById('root')
 );

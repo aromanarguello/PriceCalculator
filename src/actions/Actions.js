@@ -47,11 +47,11 @@ export const createOrder = (state) => {
     // const request = axios.post('', values).then( () => callback())
     return {
         type: ActionTypes.CREATE_ORDER,
-        payload: state
+        payload: state.Examlist
     }
  }
 
- export const changeAuth = isLoggedIn => {
+ export function changeAuth(isLoggedIn) {
      console.log(isLoggedIn)
     return { 
         type: ActionTypes.CHANGE_AUTH,

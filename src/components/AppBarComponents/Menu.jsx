@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import Button from '@material-ui/core/Button';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem'
+import { Button, Menu, MenuItem } from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
 // import MenuIcon from '@material-ui/core/Menu';
 import { NavLink } from 'react-router-dom'
@@ -39,7 +36,7 @@ class SimpleMenu extends Component {
           open={Boolean(anchorEl)}
           onClose={this.handleClose}
         >
-          <MenuItem onClick={this.handleClose}><NavLink className="links" to="/">Principal</NavLink></MenuItem>
+          <MenuItem onClick={this.handleClose}><NavLink className="links" to="/examenes">Principal</NavLink></MenuItem>
           {/* <MenuItem onClick={this.handleClose}><NavLink className="links" to="/">Examenes</NavLink></MenuItem> */}
           <MenuItem onClick={this.handleClose}><NavLink className="links" to="/perfil">Perfil</NavLink></MenuItem>
           <MenuItem onClick={this.handleClose}>Logout</MenuItem>

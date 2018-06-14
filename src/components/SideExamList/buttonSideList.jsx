@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from '@material-ui/core/Button';
+import { Button } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import { buttonStyles } from './SideExamList.styles'
 import Ionicon from 'react-ionicons'
@@ -18,7 +18,7 @@ function CreateOrderButton(props) {
     const { classes } = props;
     return (
         <form onSubmit={onSubmit.bind(this)}>
-            <Button variant="contained" color="primary" className={classes.button} onClick={ props.createOrder}>
+            <Button variant="contained" color="primary" className={classes.button} onClick={props.createOrder}>
                     Enviar
                 <Ionicon icon='md-checkbox-outline' color='#ffff' fontSize='18px'/>
             </Button>

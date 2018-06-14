@@ -1,10 +1,9 @@
 // import * as actionTypes from '../actiontypes/ActionTypes'
-import { CHANGE_AUTH } from '../actiontypes/ActionTypes'
+import * as ActionTypes from '../actiontypes/ActionTypes'
 
-export default function(state = true, action) {
-    console.log(state)
+export default function(state = false, action) {
     switch(action.type){
-        case CHANGE_AUTH:
+        case ActionTypes.CHANGE_AUTH:
             return action.payload
         default: 
             return state;

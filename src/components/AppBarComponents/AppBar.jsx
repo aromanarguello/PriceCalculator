@@ -1,15 +1,9 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem'
-import MenuComponent from './Menu'
-import * as actions from '../../actions/Actions'
+import { AppBar, Toolbar, Typography, IconButton, Button } from '@material-ui/core';
+import * as actions from '../../actions/Actions';
+import { Menu } from '../index'
 
 const styles = {
   root: {
@@ -28,11 +22,11 @@ class ButtonAppBar extends Component {
   renderButton() {
     if(this.props.auth) {
       return (
-        <button onClick={ () => this.props.changeAuth(true) }>Cerrar Sesion</button>
+        <Button onClick={ () => this.props.changeAuth(false) }>Cerrar Sesion</Button>
       )
     } else {
       return (
-        <button onClick={ () => this.props.changeAuth(false) }>Iniciar Sesion</button>
+        <Button onClick={ () => this.props.changeAuth(true) }>Iniciar Sesion</Button>
       )
     }
   }
@@ -48,7 +42,7 @@ class ButtonAppBar extends Component {
           <Toolbar>
             <IconButton className={classes.menuButton} color="primary" aria-label="Menu">
             </IconButton>
-            <MenuComponent />
+            <Menu />
             <Typography variant="title" color="primary" className={classes.flex}>
               Menu
             </Typography>
