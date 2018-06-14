@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { AppBar, ProfileCard } from '../components/index';
 import { styles } from './ProfileContainer.styles'
-
+import requireAuth from '../components/requireAuth/requireAuth'
 class ProfileContainer extends Component {
     render() {
         return (
@@ -20,4 +20,4 @@ class ProfileContainer extends Component {
     }
 }
 
-export default ProfileContainer;
+export default requireAuth(ProfileContainer);
