@@ -1,18 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import { styles } from './Table.styles'
 import { Paper, Table, TableBody, TableCell, TableHead, TableRow, Button } from '@material-ui/core';
-
-const styles = theme => ({
-  root: {
-    width: '100%',
-    marginTop: theme.spacing.unit * 3,
-    overflowX: 'auto',
-  },
-  table: {
-    minWidth: 700,
-  },
-});
 
 function SimpleTable(props) {
   const { classes } = props;
@@ -23,7 +13,7 @@ function SimpleTable(props) {
       <Table className={classes.table}>
         <TableHead>
           <TableRow>
-          <TableCell >Examen</TableCell>
+          <TableCell>Examen</TableCell>
           <TableCell numeric>Precio</TableCell>
           </TableRow>
         </TableHead>
