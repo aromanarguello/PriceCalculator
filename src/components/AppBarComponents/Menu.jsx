@@ -36,10 +36,10 @@ class SimpleMenu extends Component {
           open={Boolean(anchorEl)}
           onClose={this.handleClose}
         >
+          <MenuItem onClick={this.handleClose}><NavLink className="links" to="/">Inicio</NavLink></MenuItem>
           <MenuItem onClick={this.handleClose}><NavLink className="links" to="/examenes">Principal</NavLink></MenuItem>
           {/* <MenuItem onClick={this.handleClose}><NavLink className="links" to="/">Examenes</NavLink></MenuItem> */}
           <MenuItem onClick={this.handleClose}><NavLink className="links" to="/perfil">Perfil</NavLink></MenuItem>
-          <MenuItem onClick={this.handleClose}>Logout</MenuItem>
         </Menu>
       </div>
     );
