@@ -5,21 +5,15 @@ import * as ActionCreators from '../actions/Actions'
 import '../App.css';
 import Logo from '../SmallLogo.png'
 import { Clear, SideExamList, Total, AppBar, PriceEstimate } from '../components/index'
+import requireAuth from '../components/requireAuth/requireAuth'
 
 class App extends Component {
-  renderList() {
-      if(!this.props.auth) {
-        return (
-          <PriceEstimate />
-        )
-      }
-  }
   render() {
     const { dispatch } = this.props;
     const clearTotal = bindActionCreators(ActionCreators.clearTotal, dispatch)
 
     // sum adds each exam through reduce to produce a total
-    const sum = this.props.state.reduce((sum, exam) => sum + exam.price, 0)
+    const sum = this.props.data.reduce((sum, exam) => sum + exam.price, 0)
 
     return (
       
@@ -41,8 +35,7 @@ class App extends Component {
             <Clear clearTotal={clearTotal} />
           </div>
           <div className="main-container">
-            {/* Component that displays list of exams */}
-            {this.renderList()}
+            <PriceEstimate />
           </div>
         </div>
     );
@@ -51,9 +44,9 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
-    state,
+    data: state.examList,
     auth: state.auth
   };
 }
 
-export default connect(mapStateToProps)(App)
+export default connect(mapStateToProps)(requireAuth(App))
