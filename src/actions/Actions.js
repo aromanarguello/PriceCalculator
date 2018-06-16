@@ -1,4 +1,6 @@
-import * as ActionTypes from '../actiontypes/ActionTypes'
+import * as ActionTypes from '../actiontypes/ActionTypes';
+import axios from 'axios';
+const ROOT_URL = 'http://localhost:4200/api/';
 
 export const updateEstimator = total => {
     return {
@@ -44,15 +46,19 @@ export const removeIndividualExams = index => {
 }
 
 export const createOrder = (state) => {
-    // const request = axios.post('', values).then( () => callback())
+    const body = {
+            physicianName: 'Alejandro Roman',
+            patientName: 'Alejandro Arguello',
+            order: [state.Examlist]
+    }
+    const createOrder = axios.post(`${ROOT_URL}/ordenes`, body)
     return {
         type: ActionTypes.CREATE_ORDER,
-        payload: state.Examlist
+        payload: createOrder
     }
  }
 
  export function changeAuth(isLoggedIn) {
-     console.log(isLoggedIn)
     return { 
         type: ActionTypes.CHANGE_AUTH,
         payload: isLoggedIn
