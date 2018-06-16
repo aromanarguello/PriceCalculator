@@ -1,29 +1,36 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Button } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import { buttonStyles } from './SideExamList.styles'
 import Ionicon from 'react-ionicons'
+import { connect } from 'react-redux';
+import axios from 'axios';
 
-
-
-function CreateOrderButton(props) {
+class CreateOrderButton extends Component {
         
-    function onSubmit(values) {
-        this.props.createOrder(values, () => {
-            this.props.history.push('/')
-        })
+    async onSubmit () {
+        console.log(this.props.examList)
+        const body = {
+            physicianName: 'Alejandro',
+            patientName: 'Alex',
+            order: this.props.examList
+        }
+        const request = await axios.post('http://localhost:4200/api/ordenes', body)
+        return request;
     }
+    render () {
 
-    const { classes } = props;
-    return (
-        <form onSubmit={onSubmit.bind(this)}>
-            <Button variant="contained" color="primary" className={classes.button} onClick={props.createOrder}>
+        const { classes } = this.props;
+        return (
+            <form >
+            <Button variant="contained" color="primary" className={classes.button} onClick={this.onSubmit.bind(this)}>
                     Enviar
                 <Ionicon icon='md-checkbox-outline' color='#ffff' fontSize='18px'/>
             </Button>
         </form>
     )
+}
 }
 
 CreateOrderButton.propTypes = {
@@ -31,4 +38,11 @@ CreateOrderButton.propTypes = {
     createOrder: PropTypes.func.isRequired,
 }
 
-export default withStyles(buttonStyles)(CreateOrderButton)
+function mapStateToProps(state) {
+    console.log(state)
+    return {
+        examList: state.examList
+    }
+}
+
+export default connect(mapStateToProps)(withStyles(buttonStyles)(CreateOrderButton));

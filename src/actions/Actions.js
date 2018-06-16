@@ -1,6 +1,4 @@
-import * as ActionTypes from '../actiontypes/ActionTypes';
-import axios from 'axios';
-const ROOT_URL = 'http://localhost:4200/api/';
+import * as ActionTypes from '../actiontypes/ActionTypes'
 
 export const updateEstimator = total => {
     return {
@@ -46,15 +44,10 @@ export const removeIndividualExams = index => {
 }
 
 export const createOrder = (state) => {
-    const body = {
-            physicianName: 'Alejandro Roman',
-            patientName: 'Alejandro Arguello',
-            order: [state.Examlist]
-    }
-    const createOrder = axios.post(`${ROOT_URL}/ordenes`, body)
+    // const request = axios.post('', values).then( () => callback())
     return {
         type: ActionTypes.CREATE_ORDER,
-        payload: createOrder
+        payload: state.Examlist
     }
  }
 
