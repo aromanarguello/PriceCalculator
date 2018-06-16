@@ -2,38 +2,24 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Typography, IconButton, Button } from '@material-ui/core';
+import { Menu } from '../index';
+import { styles } from './AppBar.styles'
 import * as actions from '../../actions/Actions';
-import { Menu } from '../index'
 
-const styles = {
-  root: {
-    flexGrow: 1,
-  },
-  flex: {
-    flex: 1,
-  },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20,
-  },
-};
 
 class ButtonAppBar extends Component {
   renderButton() {
     if(this.props.auth) {
       return (
-        <Button onClick={ () => this.props.changeAuth(false) }>Cerrar Sesion</Button>
+        <Button onClick={ () => this.props.changeAuth(false) } style={styles.authButton} >Cerrar Sesion</Button>
       )
     } else {
       return (
-        <Button onClick={ () => this.props.changeAuth(true) }>Iniciar Sesion</Button>
+        <Button onClick={ () => this.props.changeAuth(true) } style={styles.authButton} >Iniciar Sesion</Button>
       )
     }
   }
 
-  componentDidMount() {
-    console.log(this.props.auth)
-  }
   render() {
   const { classes } = this.props;
   return (
@@ -56,7 +42,6 @@ class ButtonAppBar extends Component {
 
 
 function mapStateToProps(state) {
-  console.log(state)
   return {
     auth: state.auth
   }

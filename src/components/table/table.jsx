@@ -14,7 +14,7 @@ function SimpleTable(props) {
         <TableHead>
           <TableRow>
           <TableCell>Examen</TableCell>
-          <TableCell numeric>Precio</TableCell>
+          <TableCell numeric>Precio</TableCell> 
           </TableRow>
         </TableHead>
         <TableBody>
