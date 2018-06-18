@@ -1,4 +1,4 @@
-import Clear from './clear/clear'
+import Clear from './clear/Clear'
 import SideExamList from './sideExamList/SideExamList'
 import Total from './total/Total'
 import AppBar from './AppBarComponents/AppBar'
@@ -8,6 +8,8 @@ import PriceEstimate from './priceEstimate/PriceEstimate'
 import CreateOrderButton from './sideExamList/ButtonSideList'
 import ProfileCard from './profileCard/ProfileCard'
 import Menu from './AppBarComponents/Menu'
+import Authentication from './Authentication/Authentication'
+import LoginForm from './Authentication/LoginForm'
 
 export {
     Clear,
@@ -19,5 +21,7 @@ export {
     InteractiveGrids,
     CreateOrderButton,
     ProfileCard,
-    Menu
+    Menu,
+    Authentication,
+    LoginForm
 }
