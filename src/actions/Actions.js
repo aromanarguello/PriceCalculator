@@ -1,7 +1,8 @@
 import * as ActionTypes from '../actiontypes/ActionTypes'
+import { AUTH_USER } from '../actiontypes/ActionTypes';
 import axios from 'axios';
 
-const ROOT_URL = 'localhost:3000';
+const ROOT_URL = 'http://localhost:4200';
 
 export const updateEstimator = total => {
     return {
@@ -61,6 +62,8 @@ export const createOrder = (state) => {
     }
  }
 
- export const login = formProps => dispatch => {
-    axios.post(`${ROOT_URL}/ingresar`, formProps)
+ export const login = formProps => async dispatch => {
+    const response = await axios.post(`${ROOT_URL}/ingresar`, formProps)
+    console.log(response.data.token)
+    dispatch({ type: AUTH_USER, payload: response.data.token })
  }

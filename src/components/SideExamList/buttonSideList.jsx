@@ -35,7 +35,6 @@ class CreateOrderButton extends Component {
 }
 
 function mapStateToProps(state) {
-    console.log(state)
     return {
         examList: state.examList
     }

@@ -1,10 +1,14 @@
 // import * as actionTypes from '../actiontypes/ActionTypes'
 import * as ActionTypes from '../actiontypes/ActionTypes'
 
-export default function(state = false, action) {
+const INITIAL_STATE = {
+    authenticated: '',
+    errorMessage: ''
+}
+export default function(state = INITIAL_STATE, action) {
     switch(action.type){
         case ActionTypes.CHANGE_AUTH:
-            return action.payload
+            return { ...state, authenticated: action.payload }
         default: 
             return state;
     }
