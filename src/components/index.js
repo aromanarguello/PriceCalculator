@@ -8,7 +8,7 @@ import PriceEstimate from './priceEstimate/PriceEstimate'
 import CreateOrderButton from './sideExamList/ButtonSideList'
 import ProfileCard from './profileCard/ProfileCard'
 import Menu from './AppBarComponents/Menu'
-
+import SignUp from './Authentication/Authentication'
 export {
     Clear,
     SideExamList,
@@ -19,5 +19,6 @@ export {
     InteractiveGrids,
     CreateOrderButton,
     ProfileCard,
-    Menu
+    Menu,
+    SignUp
 }

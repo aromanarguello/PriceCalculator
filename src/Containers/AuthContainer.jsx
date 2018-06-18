@@ -1,12 +1,15 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { AppBar } from '../components/index';
+import { AppBar, SignUp } from '../components/index';
 
 class AuthContainer extends Component {
     render() {
         return (
-            <AppBar />
+            <div>
+                <AppBar />
+                <SignUp />
+            </div>
         )
     }
 }

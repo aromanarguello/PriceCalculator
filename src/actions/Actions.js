@@ -1,4 +1,7 @@
 import * as ActionTypes from '../actiontypes/ActionTypes'
+import axios from 'axios';
+
+const ROOT_URL = 'localhost:3000';
 
 export const updateEstimator = total => {
     return {
@@ -56,4 +59,8 @@ export const createOrder = (state) => {
         type: ActionTypes.CHANGE_AUTH,
         payload: isLoggedIn
     }
+ }
+
+ export const login = formProps => dispatch => {
+    axios.post(`${ROOT_URL}/ingresar`, formProps)
  }

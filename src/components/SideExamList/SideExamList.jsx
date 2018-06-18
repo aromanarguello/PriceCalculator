@@ -14,7 +14,7 @@ class SideExamList extends Component {
     const names = this.props.data.map((exam, index) =>
       <table className='sideListTable' key={index}>
         <tbody>
-          <tr onClick={() => removeIndividualExams(index)}>{exam.name} - {exam.price}</tr>
+          <tr onClick={() => this.props.removeIndividualExams(index)}>{exam.name} - {exam.price}</tr>
         </tbody>
       </table>)
 
@@ -26,7 +26,7 @@ class SideExamList extends Component {
                         { sum.toFixed(2) } $
                     </div>
                     { names }
-                    <CreateOrderButton createOrder={this.props.createOrder} />
+                    <CreateOrderButton />
                 </Paper>
             </div>
         );
