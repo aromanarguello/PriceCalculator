@@ -6,35 +6,40 @@ import * as actions from '../../actions/Actions';
 
 class LoginForm extends Component {
     onSubmit = formProps => {
-        this.props.login(formProps)
+        this.props.login(formProps, () => {
+            this.props.history.push('/perfil')
+        })  
     }
     render(){
         const { handleSubmit } = this.props
         return (
             <form onSubmit={handleSubmit(this.onSubmit)} >
-                <fieldset>
                     <Field
                         type='email'
                         name='email'
                         component='input'
                         autoComplete='none'
                         />
-                </fieldset>
-                <fieldset>
                     <Field
                         type='password'
                         name='password'
                         component='input'
                         autoComplete='none'
                         />
-                </fieldset>
+                        <h1>{this.props.errorMessage}</h1>
                     <button>Login</button>
             </form>
         )
     }
 }
 
+function mapStateToProps(state) {
+    return {
+        errorMessage: state.auth.errorMessage
+    }
+}
+
 export default compose(
-    reduxForm({ form: 'login'}),
-    connect(null, actions)
+    connect(mapStateToProps, actions),
+    reduxForm({ form: 'login'})
 )(LoginForm)

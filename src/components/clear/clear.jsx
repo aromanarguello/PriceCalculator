@@ -1,9 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import * as PlayerActionCreators from '../../actions/Actions';
-import { Button } from '@material-ui/core/';
-import ExamContainer from '../../Containers/ExamContainer';
+import { Button } from '@material-ui/core';
 import { styles } from './Clear.style';
 
 const Clear = props => {

@@ -1,5 +1,5 @@
 import * as ActionTypes from '../actiontypes/ActionTypes'
-import { AUTH_USER } from '../actiontypes/ActionTypes';
+import { AUTH_USER, AUTH_ERROR, FETCH_PROVIDER } from '../actiontypes/ActionTypes';
 import axios from 'axios';
 
 const ROOT_URL = 'http://localhost:4200';
@@ -55,15 +55,29 @@ export const createOrder = (state) => {
     }
  }
 
+ export const fetchProviderInfo = token => async dispatch => {
+     try {
+         const response = await axios.get(`${ROOT_URL}/usuario`, { headers: { 'authorization': token }} )
+         console.log(response.data)
+         dispatch({ type: FETCH_PROVIDER, payload: response.data }) 
+     } catch (error) {
+        throw new Error(error)
+     }
+ }
+
  export function changeAuth(isLoggedIn) {
     return { 
         type: ActionTypes.CHANGE_AUTH,
-        payload: isLoggedIn
+        payload: ''
     }
  }
 
- export const login = formProps => async dispatch => {
-    const response = await axios.post(`${ROOT_URL}/ingresar`, formProps)
-    console.log(response.data.token)
-    dispatch({ type: AUTH_USER, payload: response.data.token })
- }
+ export const login = (formProps, callback) => async dispatch => {
+    try {
+        const response = await axios.post(`${ROOT_URL}/ingresar`, formProps);
+        dispatch({ type: AUTH_USER, payload: response.data.token });
+        callback();
+    } catch (error) {
+        dispatch({ type: AUTH_ERROR, payload: 'El correo/contraseña no existen'})
+    }
+}

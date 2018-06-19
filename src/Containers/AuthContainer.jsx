@@ -7,7 +7,6 @@ class AuthContainer extends Component {
     render() {
         return (
             <div>
-                <AppBar />
                 <Authentication />
             </div>
         )

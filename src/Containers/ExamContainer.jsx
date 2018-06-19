@@ -19,7 +19,6 @@ class App extends Component {
       
         <div className="App">
           <div id="app-bar-container">
-            <AppBar />
           </div>
           <div id="side-exam-list-container">
             <aside>
