@@ -27,7 +27,6 @@ export default function Action( state = initialState, action ) {
                 ...state.slice(action.index + 1)
             ]
         case ActionTypes.CREATE_ORDER:
-        console.log(...state)
             return [ ...state ]
         default: return state;
     }   

@@ -7,6 +7,8 @@ const INITIAL_STATE = {
 }
 export default function(state = INITIAL_STATE, action) {
     switch(action.type){
+        case ActionTypes.AUTH_USER:
+            return { ...state, authenticated: action.payload }
         case ActionTypes.CHANGE_AUTH:
             return { ...state, authenticated: action.payload }
         default: 

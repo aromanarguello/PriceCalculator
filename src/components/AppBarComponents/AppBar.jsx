@@ -2,20 +2,21 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Typography, IconButton, Button } from '@material-ui/core';
+import MenuIcon from '@material-ui/icons/Menu'
 import { Menu } from '../index';
 import { styles } from './AppBar.styles'
 import * as actions from '../../actions/Actions';
 
 
 class ButtonAppBar extends Component {
-  renderButton() {
+  renderAuthButton() {
     if(this.props.auth) {
       return (
-        <Button onClick={ () => this.props.changeAuth(false) } style={styles.authButton} >Cerrar Sesion</Button>
+        <Button onClick={ () => this.props.changeAuth() } style={styles.authButton}>Cerrar Sesion</Button>
       )
     } else {
       return (
-        <Button onClick={ () => this.props.changeAuth(true) } style={styles.authButton} >Iniciar Sesion</Button>
+        <Button style={styles.authButton}>Iniciar Sesion</Button>
       )
     }
   }
@@ -26,13 +27,20 @@ class ButtonAppBar extends Component {
     <div className={classes.root}>
         <AppBar position="static" color="inherit">
           <Toolbar>
-            <IconButton className={classes.menuButton} color="primary" aria-label="Menu">
+            <IconButton 
+                className={classes.menuButton} 
+                color="inherit" 
+                aria-label="Menu">
+              <MenuIcon />
+              <Menu />
             </IconButton>
-            <Menu />
-            <Typography variant="title" color="primary" className={classes.flex}>
+            <Typography 
+                variant="title"
+                color="primary"
+                className={classes.flex}>
               Menu
             </Typography>
-            {this.renderButton()}
+            {this.renderAuthButton()}
           </Toolbar>
         </AppBar>
       </div>
@@ -43,7 +51,7 @@ class ButtonAppBar extends Component {
 
 function mapStateToProps(state) {
   return {
-    auth: state.auth
+    auth: state.auth.authenticated
   }
 }
 export default connect(mapStateToProps, actions)(withStyles(styles)(ButtonAppBar));

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { AppBar, ProfileCard } from '../components/index';
+import { ProfileCard } from '../components/index';
 import { styles } from './ProfileContainer.styles'
 import requireAuth from '../components/requireAuth/requireAuth'
 class ProfileContainer extends Component {
@@ -8,7 +8,6 @@ class ProfileContainer extends Component {
         return (
             <div>
                 <div id="app-bar-container">
-                    <AppBar />
                 </div>
                 <div id="profileCardContainer" style={styles.profileCard}>
                     <aside>
