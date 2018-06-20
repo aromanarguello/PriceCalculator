@@ -11,6 +11,7 @@ import Menu from './AppBarComponents/Menu'
 import Authentication from './Authentication/Authentication'
 import LoginForm from './Authentication/LoginForm'
 import Signout from './Authentication/Signout'
+import OrderCard from './orderCard/OrderCard'
 
 export {
     Clear,
@@ -25,5 +26,6 @@ export {
     Menu,
     Authentication,
     LoginForm,
-    Signout
+    Signout,
+    OrderCard
 }

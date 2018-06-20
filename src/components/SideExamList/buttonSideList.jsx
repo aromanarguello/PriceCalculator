@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Button } from '@material-ui/core';
 import { clearTotal } from '../../actions/Actions'
 import { withStyles } from '@material-ui/core/styles';

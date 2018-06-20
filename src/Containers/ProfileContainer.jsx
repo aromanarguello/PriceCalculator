@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { ProfileCard } from '../components/index';
+import { ProfileCard, OrderCard } from '../components/index';
 import { styles } from './ProfileContainer.styles'
 import requireAuth from '../components/requireAuth/requireAuth'
 class ProfileContainer extends Component {
     render() {
         return (
             <div>
-                <div id="app-bar-container">
-                </div>
+                <OrderCard />
                 <div id="profileCardContainer" style={styles.profileCard}>
                     <aside>
                     <ProfileCard />
