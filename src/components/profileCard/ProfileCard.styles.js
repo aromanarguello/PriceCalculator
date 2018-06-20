@@ -2,7 +2,7 @@ export const styles = {
     profileCard: {
         width: '300px',
         height: '500px',
-        margin: '0 0 0 0',
+        margin: '0 0 0 10px',
         display: 'flex',
         justifyContent: 'center',
     },

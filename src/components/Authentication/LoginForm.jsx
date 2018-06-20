@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import * as actions from '../../actions/Actions';
@@ -42,4 +43,4 @@ function mapStateToProps(state) {
 export default compose(
     connect(mapStateToProps, actions),
     reduxForm({ form: 'login'})
-)(LoginForm)
+)(withRouter(LoginForm))

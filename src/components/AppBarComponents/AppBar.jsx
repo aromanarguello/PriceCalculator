@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux'
 import { withStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Typography, IconButton, Button } from '@material-ui/core';
+import { compose } from 'redux';
+import { withRouter } from 'react-router-dom';
+import requireAuth from '../requireAuth/requireAuth';
 import MenuIcon from '@material-ui/icons/Menu'
 import { Menu } from '../index';
 import { styles } from './AppBar.styles'
@@ -12,13 +15,14 @@ class ButtonAppBar extends Component {
   renderAuthButton() {
     if(this.props.auth) {
       return (
-        <Button onClick={ () => this.props.changeAuth() } style={styles.authButton}>Cerrar Sesion</Button>
-      )
-    } else {
-      return (
-        <Button style={styles.authButton}>Iniciar Sesion</Button>
+        <Button onClick={ () => this.handleSignout() } style={styles.authButton}>Cerrar Sesion</Button>
       )
     }
+  }
+
+  handleSignout() {
+    this.props.signout()
+    this.props.history.push('/signout')
   }
 
   render() {
@@ -31,7 +35,7 @@ class ButtonAppBar extends Component {
                 className={classes.menuButton} 
                 color="inherit" 
                 aria-label="Menu">
-              <MenuIcon />
+              {/* <MenuIcon /> */}
               <Menu />
             </IconButton>
             <Typography 
@@ -54,4 +58,7 @@ function mapStateToProps(state) {
     auth: state.auth.authenticated
   }
 }
-export default connect(mapStateToProps, actions)(withStyles(styles)(ButtonAppBar));
+export default compose(
+  connect(mapStateToProps, actions),
+  withStyles(styles),
+)(withRouter(ButtonAppBar))

@@ -10,9 +10,9 @@ export const cardStyle = {
     card: {
         width: 400,
         height: 600,
-        backgroundColor: 'rgb(241, 244, 245)',
         display: 'flex',
         alignItems: 'center',
+        justifyContent: 'center',
         margin: 50
     },
     container: {

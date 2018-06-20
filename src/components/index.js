@@ -10,6 +10,7 @@ import ProfileCard from './profileCard/ProfileCard'
 import Menu from './AppBarComponents/Menu'
 import Authentication from './Authentication/Authentication'
 import LoginForm from './Authentication/LoginForm'
+import Signout from './Authentication/Signout'
 
 export {
     Clear,
@@ -23,5 +24,6 @@ export {
     ProfileCard,
     Menu,
     Authentication,
-    LoginForm
+    LoginForm,
+    Signout
 }

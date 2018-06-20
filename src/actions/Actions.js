@@ -65,19 +65,22 @@ export const createOrder = (state) => {
      }
  }
 
- export function changeAuth(isLoggedIn) {
-    return { 
-        type: ActionTypes.CHANGE_AUTH,
-        payload: ''
-    }
- }
-
  export const login = (formProps, callback) => async dispatch => {
     try {
         const response = await axios.post(`${ROOT_URL}/ingresar`, formProps);
         dispatch({ type: AUTH_USER, payload: response.data.token });
+        localStorage.setItem('token', response.data.token)
         callback();
     } catch (error) {
         dispatch({ type: AUTH_ERROR, payload: 'El correo/contraseña no existen'})
+    }
+}
+
+export const signout = () => {
+    localStorage.removeItem('token');
+    
+    return {
+        type: AUTH_USER,
+        payload: ''
     }
 }

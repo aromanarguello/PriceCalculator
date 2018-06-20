@@ -5,7 +5,11 @@ import reduxPromise from 'redux-promise';
 import reduxThunk from 'redux-thunk';
 import reducers from './reducer';
 
-export default ({ children, initialState = {} }) => {
+const INITIAL_STATE = {
+    auth: { authenticated: localStorage.getItem('token') }
+}
+
+export default ({ children, initialState = INITIAL_STATE }) => {
     const store = createStore(
         reducers,
         initialState,

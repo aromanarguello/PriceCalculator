@@ -5,13 +5,14 @@ import { Paper } from '@material-ui/core';
 import { fetchProviderInfo } from '../../actions/Actions'
 class ProfileCard extends Component {
 
-    componentWillMount() {
+    componentDidMount() {
        this.props.fetchProviderInfo(this.props.auth)
     }
+    
     render() {
-        console.log(this.props)
+        console.log('provider', this.props.provider.providerInfo)
         return (
-            <Paper elevation={4} style={ styles.profileCard }>
+            <Paper elevation={2} style={ styles.profileCard } className="side-exam-view">
                 <div id='profileImageContainer'>
                     <div style={styles.profileImageContainer}></div>
                     <h1>Welcome:</h1>
@@ -23,7 +24,7 @@ class ProfileCard extends Component {
 
 function mapStateToProps(state) {
     return { 
-        provider: state.provider.providerInfo,
+        provider: state.provider,
         auth: state.auth.authenticated,
      }
 }
