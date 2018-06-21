@@ -111,3 +111,17 @@ h1 {
   text-decoration: none;
   color: black;
 }
+
+#profileContainer {
+  display: flex;
+  justify-content: space-around;
+  flex-flow: row wrap;
+}
+
+.orderCardContainer {
+  order: 1;
+  margin-top: 27px;
+}
+.profileCardContainer {
+  order: 2;
+}

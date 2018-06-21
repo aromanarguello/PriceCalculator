@@ -13,7 +13,7 @@ export default function(state={}, action) {
         case actions.FETCH_ORDER:
             return {
                 ...state, 
-                order: action.payload
+                order: action.payload.data
             }
         default:
             return state

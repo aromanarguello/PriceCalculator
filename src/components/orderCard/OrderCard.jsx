@@ -1,16 +1,27 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Paper } from '@material-ui/core';
+import { styles } from './OrderCard.styles'
 import * as actions from '../../actions/Actions'
-
 class OrderCard extends Component {
     componentWillMount() {
-        this.props.fetchOrder()
-        console.log('order', this.props.order)        
+        const token = localStorage.getItem('jwt');
+        this.props.fetchOrder(token)
     }
 
+    
     render() {
+        // const orders = this.props.order.forEach( x => {
+        //     console.log(x)
+        // })
+
+        {console.log(this.props.order)}
         return (
-            <h1>OrderCard Component</h1>
+            <div id='orderCardContainer'>
+                <Paper style={styles.orderCard}>
+                    
+                </Paper>
+            </div>
         )
     }
 }

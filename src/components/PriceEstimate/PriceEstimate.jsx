@@ -16,7 +16,7 @@ class PriceEstimate extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:4200/api/prices')
+        axios.get('http://localhost:4200/precios')
         .then( res => {
             this._data = res.data
             this.setState({

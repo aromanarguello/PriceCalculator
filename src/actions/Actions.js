@@ -1,5 +1,11 @@
 import * as ActionTypes from '../actiontypes/ActionTypes'
-import { AUTH_USER, AUTH_ERROR, FETCH_PROVIDER, FETCH_ORDER } from '../actiontypes/ActionTypes';
+import { 
+    AUTH_USER,
+    AUTH_ERROR,
+    FETCH_PROVIDER, 
+    FETCH_ORDER, 
+    CREATE_ORDER
+} from '../actiontypes/ActionTypes';
 import axios from 'axios';
 
 const ROOT_URL = 'http://localhost:4200';
@@ -47,17 +53,18 @@ export const removeIndividualExams = index => {
     }
 }
 
-export const createOrder = (state) => {
-    return {
-        type: ActionTypes.CREATE_ORDER,
-        payload: state.Examlist
+export const createOrder = (token, formProps, body,callback) => async dispatch => {
+    try {
+        const response = await axios.post(`${ROOT_URL}/ordenes`, body)
+        dispatch({ type: CREATE_ORDER, payload: response.data})
+    } catch (error) {
+        throw new Error(error)
     }
  }
 
- export const fetchOrder = () => async dispatch => {
+ export const fetchOrder = token => async dispatch => {
     try {
-        const token = localStorage.getItem('token')
-        const response = await axios.post(`${ROOT_URL}/api/ordenes`)
+        const response = await axios.get(`${ROOT_URL}/ordenes`)
         console.log('fetchOrder Action:', response)
         dispatch({ type: FETCH_ORDER, payload: response})
     } catch (error) {

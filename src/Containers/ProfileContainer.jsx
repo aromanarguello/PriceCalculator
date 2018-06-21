@@ -5,11 +5,13 @@ import requireAuth from '../components/requireAuth/requireAuth'
 class ProfileContainer extends Component {
     render() {
         return (
-            <div>
-                <OrderCard />
+            <div id='profileContainer' style={styles.container} >
+            <div className='orderCardContainer' >
+                <OrderCard/>
+            </div>
                 <div id="profileCardContainer" style={styles.profileCard}>
-                    <aside>
-                    <ProfileCard />
+                    <aside className='profileCardContainer'>
+                        <ProfileCard /> 
                     </aside>
                 </div>
             </div>
