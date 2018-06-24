@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { AppBar, Authentication } from '../components/index';
+import { Authentication } from '../components/index';
 
 class AuthContainer extends Component {
     render() {

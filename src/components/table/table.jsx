@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { styles } from './Table.styles'
 import { Paper, Table, TableBody, TableCell, TableHead, TableRow, Button } from '@material-ui/core';
@@ -43,11 +42,5 @@ function SimpleTable(props) {
     </div>
   );
 }
-
-SimpleTable.propTypes = {
-  classes: PropTypes.object.isRequired,
-  state: PropTypes.object.isRequired,
-  addPrices: PropTypes.func.isRequired,
-};
 
 export default withStyles(styles)(SimpleTable);

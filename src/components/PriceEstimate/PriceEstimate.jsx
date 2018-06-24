@@ -5,10 +5,6 @@ import { SearchBar, InteractiveGrids } from '../index'
 import { connect } from 'react-redux';
 import axios from 'axios'
 
-const style = {
-    margin: 12,
-  };
-
 class PriceEstimate extends Component {
     // added state in order to render search filter. When Textfield is empty the whole state will be displayed. As keys are entered the list reduces
     state = {

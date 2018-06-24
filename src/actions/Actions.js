@@ -53,7 +53,7 @@ export const removeIndividualExams = index => {
     }
 }
 
-export const createOrder = (token, formProps, body,callback) => async dispatch => {
+export const createOrder = (token, formProps, body, callback) => async dispatch => {
     try {
         const response = await axios.post(`${ROOT_URL}/ordenes`, body)
         dispatch({ type: CREATE_ORDER, payload: response.data})
@@ -64,9 +64,9 @@ export const createOrder = (token, formProps, body,callback) => async dispatch =
 
  export const fetchOrder = token => async dispatch => {
     try {
-        const response = await axios.get(`${ROOT_URL}/ordenes`)
-        console.log('fetchOrder Action:', response)
-        dispatch({ type: FETCH_ORDER, payload: response})
+        const response = await axios.get(`${ROOT_URL}/ordenes`, { headers: { 'authorization': token }} )
+        // console.log(response.data)
+        dispatch({ type: FETCH_ORDER, payload: response.data })
     } catch (error) {
         throw new Error(error)
     }
@@ -74,7 +74,7 @@ export const createOrder = (token, formProps, body,callback) => async dispatch =
 
  export const fetchProviderInfo = token => async dispatch => {
      try {
-         const response = await axios.get(`${ROOT_URL}/usuario`, { headers: { 'authorization': token }} )
+         const response = await axios.get(`${ROOT_URL}/usuario`, { headers: { 'authorization': token }})
          dispatch({ type: FETCH_PROVIDER, payload: response.data }) 
      } catch (error) {
         throw new Error(error)
