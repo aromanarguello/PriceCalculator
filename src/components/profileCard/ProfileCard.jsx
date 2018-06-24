@@ -11,7 +11,7 @@ class ProfileCard extends Component {
     
     render() {
         return (
-            <Paper elevation={2} style={ styles.profileCard } className="side-exam-view">
+            <Paper elevation={1} style={ styles.profileCard } className="side-exam-view">
                 <div id='profileImageContainer'>
                     <div style={styles.profileImageContainer}></div>
                     <h1>Welcome:</h1>

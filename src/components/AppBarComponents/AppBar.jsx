@@ -4,12 +4,9 @@ import { withStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Typography, IconButton, Button } from '@material-ui/core';
 import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
-import requireAuth from '../requireAuth/requireAuth';
-import MenuIcon from '@material-ui/icons/Menu'
 import { Menu } from '../index';
-import { styles } from './AppBar.styles'
+import { styles, customStyles } from './AppBar.styles'
 import * as actions from '../../actions/Actions';
-
 
 class ButtonAppBar extends Component {
   renderAuthButton() {
@@ -29,13 +26,12 @@ class ButtonAppBar extends Component {
   const { classes } = this.props;
   return (
     <div className={classes.root}>
-        <AppBar position="static" color="inherit">
+        <AppBar position="static" color="inherit" style={customStyles.card} >
           <Toolbar>
             <IconButton 
                 className={classes.menuButton} 
                 color="inherit" 
                 aria-label="Menu">
-              {/* <MenuIcon /> */}
               <Menu />
             </IconButton>
             <Typography 

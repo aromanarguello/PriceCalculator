@@ -1,6 +1,15 @@
 export const styles = {
     orderCard: {
-        width: '1000px',
-        height: '800px',
+        margin: 0,
+        height: '800px'
+    },
+    orderBox: {
+        width: '100%',
+        height: '100%',
+        border: '1px solid',
+        color: 'black',
+    },
+    profileCard: {
+        width: '100%'
     }
 }

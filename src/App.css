@@ -1,3 +1,7 @@
+:root {
+  --navyBlue: #234082;
+}
+
 body {
   background: #457fca;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #5691c8, #457fca);  /* Chrome 10-25, Safari 5.1-6 */
@@ -55,7 +59,7 @@ table {
   justify-content: center;
   font-size: 30px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #234082;
+  color: var(--navyBlue);
 }
 
 .clear-btn {
@@ -82,6 +86,7 @@ aside {
   text-align: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 17px;
+  border: 0;
 }
 
 .side-total-amount {
@@ -113,15 +118,43 @@ h1 {
 }
 
 #profileContainer {
-  display: flex;
-  justify-content: space-around;
-  flex-flow: row wrap;
+  display: grid;
+  height: 800px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  /* grid-gap: 20px; */
+  /* justify-content: space-around;
+  flex-flow: row wrap; */
 }
 
-.orderCardContainer {
-  order: 1;
-  margin-top: 27px;
+#orderCardContainer {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  /* grid-template-rows: 3fr 1fr; */
+  background: #ECE9E6;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
-.profileCardContainer {
-  order: 2;
+
+#profileCardContainer {
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  max-width: 100%;
+  height: 100%;
 }
+
+#orders {
+  grid-column: 2/3;
+  /* grid-row: ; */
+  grid-gap: 25px;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  justify-content: center;
+}
+

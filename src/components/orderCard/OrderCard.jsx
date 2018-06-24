@@ -1,25 +1,58 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Paper } from '@material-ui/core';
+import axios from 'axios';
 import { styles } from './OrderCard.styles'
+import { ProfileCard } from '../index';
 import * as actions from '../../actions/Actions'
 class OrderCard extends Component {
-    componentWillMount() {
-        const token = localStorage.getItem('jwt');
-        this.props.fetchOrder(token)
+    constructor(props) {
+        super(props)
+        this.state = { prescription: []}
     }
 
-    
-    render() {
-        // const orders = this.props.order.forEach( x => {
-        //     console.log(x)
-        // })
+    fetchOrders = async () => {
+        const res = await axios.get('http://localhost:4200/ordenes')
+        this.setState({
+            prescription: res.data
+        })
+    }
 
-        {console.log(this.props.order)}
+    componentDidMount() {
+        this.fetchOrders()
+    }
+
+    renderOrder() {
+        if (this.state.prescription.length === 0 ) {
+            return ( 
+                <h1>Loading...</h1>
+            )
+        } else {
+            return (
+                this.state.prescription.map( x => (
+                    <Paper>
+                        <li>
+                            {console.log(x.patientName)}
+                            <h1>{ x.patientName }</h1>
+                        </li>
+                    </Paper>
+            ))
+        )}
+    }
+
+    render() {
+        console.log(this.state.prescription)
         return (
-            <div id='orderCardContainer'>
-                <Paper style={styles.orderCard}>
-                    
+            <div >
+                <Paper style={styles.orderCard}id='orderCardContainer' >
+                    <div id="profileCardContainer" style={styles.profileCard}>
+                        <aside className='profileCardContainer'>
+                            <ProfileCard />
+                        </aside>
+                    </div>
+                    <div id='orders' >
+                        { this.renderOrder() }
+                    </div>
                 </Paper>
             </div>
         )
@@ -28,7 +61,7 @@ class OrderCard extends Component {
 
 function mapStateToProps(state) {
     return {
-        order: state.provider
+        auth: state.auth.authenticated,
     }
 }
 

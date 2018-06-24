@@ -13,3 +13,9 @@ export const styles = {
         color: '#234082'
     }
   };
+
+  export const customStyles = {
+    card: {
+      margin: '0 0 20px 0'
+    }
+  }
