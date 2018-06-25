@@ -12,6 +12,7 @@ import Authentication from './Authentication/Authentication'
 import LoginForm from './Authentication/LoginForm'
 import Signout from './Authentication/Signout'
 import OrderCard from './orderCard/OrderCard'
+import OrderCardInfo from './orderCard/orderCardInfo/OrderCardInfo';
 
 export {
     Clear,
@@ -27,5 +28,6 @@ export {
     Authentication,
     LoginForm,
     Signout,
-    OrderCard
+    OrderCard,
+    OrderCardInfo
 }

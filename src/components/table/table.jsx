@@ -1,7 +1,15 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { styles } from './Table.styles'
-import { Paper, Table, TableBody, TableCell, TableHead, TableRow, Button } from '@material-ui/core';
+import { 
+  Paper, 
+  Table,
+  TableBody,
+  TableCell, 
+  TableHead, 
+  TableRow, 
+  Button
+} from '@material-ui/core';
 
 function SimpleTable(props) {
   const { classes } = props;
