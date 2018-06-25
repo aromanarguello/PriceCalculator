@@ -3,9 +3,9 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as ActionCreators from '../actions/Actions'
 import '../App.css';
-import Logo from '../SmallLogo.png'
 import { Clear, SideExamList, Total, AppBar, PriceEstimate } from '../components/index'
 import requireAuth from '../components/requireAuth/requireAuth'
+// import Logo from '../SmallLogo.png'
 
 class App extends Component {
   render() {
@@ -26,7 +26,7 @@ class App extends Component {
             </aside>
           </div>
           <div className="header-container">
-            <img src={Logo} alt="logo" id="logo" />
+            {/* <img src={Logo} alt="logo" id="logo" /> */}
             <div className='price-container'>
               {/* displays the total sum of added prices */}
               <Total total={sum} />

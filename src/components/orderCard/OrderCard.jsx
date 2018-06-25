@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Paper } from '@material-ui/core';
 import axios from 'axios';
 import { styles } from './OrderCard.styles'
-import { ProfileCard } from '../index';
+import { ProfileCard, OrderCardInfo } from '../index';
 import * as actions from '../../actions/Actions'
 class OrderCard extends Component {
     constructor(props) {
@@ -22,24 +22,6 @@ class OrderCard extends Component {
         this.fetchOrders()
     }
 
-    renderOrder() {
-        if (this.state.prescription.length === 0 ) {
-            return ( 
-                <h1>Loading...</h1>
-            )
-        } else {
-            return (
-                this.state.prescription.map( x => (
-                    <Paper>
-                        <li>
-                            {console.log(x.patientName)}
-                            <h1>{ x.patientName }</h1>
-                        </li>
-                    </Paper>
-            ))
-        )}
-    }
-
     render() {
         console.log(this.state.prescription)
         return (
@@ -51,7 +33,7 @@ class OrderCard extends Component {
                         </aside>
                     </div>
                     <div id='orders' >
-                        { this.renderOrder() }
+                    <OrderCardInfo orders={this.state.prescription} />
                     </div>
                 </Paper>
             </div>
