@@ -8,10 +8,18 @@ export const styles = {
     },
 
     profileImageContainer: {
-        width: 80,
-        height: 80,
-        margin: '20px',
+        width: 100,
+        height: 100,
+        margin: '10px auto',
         border: '2px solid #234082',
         borderRadius: '50%',
+    },
+    profileCardButtons: {
+        display: 'flex',
+        flexDirection: 'column',
+        marginTop: '40px'
+    },
+    directButtons: {
+        margin: '5px 0'
     }
 }

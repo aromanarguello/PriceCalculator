@@ -13,7 +13,7 @@ import LoginForm from './Authentication/LoginForm'
 import Signout from './Authentication/Signout'
 import OrderCard from './orderCard/OrderCard'
 import OrderCardInfo from './orderCard/orderCardInfo/OrderCardInfo';
-
+import OrderModal from './orderModal/OrderModal';
 export {
     Clear,
     SideExamList,
@@ -29,5 +29,6 @@ export {
     LoginForm,
     Signout,
     OrderCard,
-    OrderCardInfo
+    OrderCardInfo,
+    OrderModal
 }

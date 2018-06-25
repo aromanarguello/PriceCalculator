@@ -44,10 +44,10 @@ class SimpleModal extends Component {
   render() {
     const { classes } = this.props;
 
+    {console.log(this.props.order)}
     return (
       <div>
-        <Typography gutterBottom>Click to get the full Modal experience!</Typography>
-        <Button onClick={this.handleOpen}>Open Modal</Button>
+        <Button onClick={this.handleOpen}>Ver Ordén</Button>
         <Modal
           aria-labelledby="simple-modal-title"
           aria-describedby="simple-modal-description"
@@ -56,12 +56,12 @@ class SimpleModal extends Component {
         >
           <div style={getModalStyle()} className={classes.paper}>
             <Typography variant="title" id="modal-title">
-              Text in a modal
+              Orden: 
             </Typography>
             <Typography variant="subheading" id="simple-modal-description">
               Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
             </Typography>
-            <SimpleModalWrapped />
+            {/* <SimpleModalWrapped /> */}
           </div>
         </Modal>
       </div>
@@ -71,6 +71,7 @@ class SimpleModal extends Component {
 
 SimpleModal.propTypes = {
   classes: PropTypes.object.isRequired,
+  order: PropTypes.array.isRequired
 };
 
 // We need an intermediary variable for handling the recursive nesting.

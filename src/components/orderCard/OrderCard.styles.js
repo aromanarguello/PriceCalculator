@@ -9,7 +9,4 @@ export const styles = {
         border: '1px solid',
         color: 'black',
     },
-    profileCard: {
-        width: '100%'
-    }
 }

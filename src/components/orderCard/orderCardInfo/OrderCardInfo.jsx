@@ -1,7 +1,8 @@
 import React from 'react';
 import moment from 'moment';
-import { Paper } from '@material-ui/core';
+import { withStyles, Paper, Button } from '@material-ui/core';
 import { styles } from './OrderCardInfo.styles'
+import { OrderModal } from '../../index'
 
 const OrderCardInfo = ({ orders }) => {
     // Wait until fetched data from API has populated state
@@ -19,8 +20,9 @@ const OrderCardInfo = ({ orders }) => {
                     <li key={index} style={styles.cardInfo}>
                         {console.log(order.patientName)}
                         <h3>Paciente: { order.patientName }</h3>
-                        <p>{ moment.utc(order.createdAt).local().format('MMMM Do YYYY')}</p>
-                        <a href='/perfil'>Ver Orden</a>
+                        <p><b>Fecha de Orden:</b> { moment.utc(order.createdAt).local().format('MMMM Do YYYY')}</p>
+                        {/* <Button size="small">Ver Orden</Button> */}
+                        <OrderModal order={orders} />
                     </li>
                 </Paper>
         ))

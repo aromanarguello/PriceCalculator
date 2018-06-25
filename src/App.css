@@ -3,9 +3,10 @@
 }
 
 body {
-  background: #457fca;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #5691c8, #457fca);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #5691c8, #457fca); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #56CCF2;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2F80ED, #56CCF2);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2F80ED, #56CCF2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
 }
 .App {
   font-family: 'Roboto', sans-serif;
@@ -120,17 +121,16 @@ h1 {
 #profileContainer {
   display: grid;
   height: 800px;
+  width: 90%;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
-  /* grid-gap: 20px; */
-  /* justify-content: space-around;
-  flex-flow: row wrap; */
+  margin: 80px auto 0 auto;
 }
 
 #orderCardContainer {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-columns: 2fr 5fr 0.5fr;
   /* grid-template-rows: 3fr 1fr; */
   background: #ECE9E6;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
@@ -139,11 +139,12 @@ h1 {
 }
 
 #profileCardContainer {
-  /* display: flex;
+  display: flex;
   justify-content: center;
-  align-items: center; */
-  max-width: 100%;
-  height: 100%;
+  margin-top: 20px;
+  max-width: 90%;
+  height: 70%;
+  border-right: 1px solid var(--navyBlue);
 }
 
 #orders {
@@ -152,6 +153,7 @@ h1 {
   width: 100%;
   height: 100%;
   display: grid;
+  align-items: center;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(3, 1fr);
 }
