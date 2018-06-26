@@ -14,6 +14,8 @@ import Signout from './Authentication/Signout'
 import OrderCard from './orderCard/OrderCard'
 import OrderCardInfo from './orderCard/orderCardInfo/OrderCardInfo';
 import OrderModal from './orderModal/OrderModal';
+import NavButtons from './navButtons/NavButtons';
+
 export {
     Clear,
     SideExamList,
@@ -30,5 +32,6 @@ export {
     Signout,
     OrderCard,
     OrderCardInfo,
-    OrderModal
+    OrderModal,
+    NavButtons
 }

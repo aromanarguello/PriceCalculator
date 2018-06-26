@@ -9,7 +9,7 @@ export const styles = theme => ({
 export const cardStyle = {
     card: {
         width: 400,
-        height: 600,
+        height: 200,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -18,8 +18,8 @@ export const cardStyle = {
     container: {
         display: 'flex',
         justifyContent: 'center',
-        margin: '50px 0 0 0',
-        
+        alignItems: 'center',
+        margin: '50px 0 0 0'
     },
     loginContainer: {
         display: 'flex',

@@ -1,13 +1,28 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import { styles } from './ProfileCard.styles'
-import { Paper } from '@material-ui/core';
-import { fetchProviderInfo } from '../../actions/Actions'
+import { Button } from '@material-ui/core';
+import { fetchProviderInfo, signout } from '../../actions/Actions'
+import { NavButtons } from '../index';
 class ProfileCard extends Component {
 
     componentWillMount() {
        this.props.fetchProviderInfo(this.props.auth)
+    }
+
+    renderAuthButton() {
+        if(this.props.auth) {
+            return (
+            <Button onClick={ () => this.handleSignout() } style={styles.authButton}>Cerrar Sesion</Button>
+            )
+        }
+    }
+
+    handleSignout() {
+        this.props.signout()
+        this.props.history.push('/signout')
     }
     
     render() {
@@ -18,10 +33,8 @@ class ProfileCard extends Component {
                     <h1>Welcome:</h1>
                     <h3>{this.props.provider.providerFirstName +' '+ this.props.provider.providerLastName}</h3>
                     <div style={styles.profileCardButtons} >
-                        <button style={styles.directButtons}><NavLink to='/perfil/ordenes'>Ordenes Recientes</NavLink></button>
-                        <button style={styles.directButtons}><NavLink to='/examenes'>Crear Orden</NavLink></button>
-                        <button style={styles.directButtons}>Pacientes</button>
-                        <button style={styles.directButtons}>Servicios</button>
+                        <NavButtons />
+                        { this.renderAuthButton() }
                     </div>
                 </div>
             </div>
@@ -36,4 +49,4 @@ function mapStateToProps(state) {
      }
 }
 
-export default connect(mapStateToProps, { fetchProviderInfo } )(ProfileCard);
+export default connect(mapStateToProps, { fetchProviderInfo, signout } )(withRouter(ProfileCard));
