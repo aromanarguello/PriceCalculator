@@ -14,12 +14,4 @@ export const styles = {
         border: '2px solid #234082',
         borderRadius: '50%',
     },
-    profileCardButtons: {
-        display: 'flex',
-        flexDirection: 'column',
-        marginTop: '40px'
-    },
-    directButtons: {
-        margin: '5px 0'
-    }
 }

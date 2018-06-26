@@ -11,21 +11,21 @@ class OrderCard extends Component {
         this.state = { prescription: []}
     }
 
-    fetchOrders = async () => {
-        const res = await axios.get('http://localhost:4200/ordenes')
+    fetchOrders = async token => {
+        const res = await axios.get('http://localhost:4200/ordenes', { headers: { 'authorization': token }})
         this.setState({
             prescription: res.data
         })
     }
 
     componentDidMount() {
-        this.fetchOrders()
+        this.fetchOrders(this.props.auth)
     }
 
     render() {
         console.log(this.state.prescription)
         return (
-            <div >
+            <div>
                 <Paper style={styles.orderCard}id='orderCardContainer' >
                     <div id="profileCardContainer" style={styles.profileCard}>
                         <aside className='profileCardContainer'>
@@ -33,7 +33,7 @@ class OrderCard extends Component {
                         </aside>
                     </div>
                     <div id='orders' >
-                    <OrderCardInfo orders={this.state.prescription} />
+                        <OrderCardInfo orders={this.state.prescription} />
                     </div>
                 </Paper>
             </div>

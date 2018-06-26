@@ -44,7 +44,7 @@ class SimpleModal extends Component {
   render() {
     const { classes } = this.props;
 
-    {console.log(this.props.order)}
+    {console.log('modal', this.props.order.order)}
     return (
       <div>
         <Button onClick={this.handleOpen}>Ver Ordén</Button>
@@ -58,8 +58,12 @@ class SimpleModal extends Component {
             <Typography variant="title" id="modal-title">
               Orden: 
             </Typography>
-            <Typography variant="subheading" id="simple-modal-description">
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+            <Typography variant="button" id="simple-modal-description">
+              {this.props.order.order.map(x => (
+                  <li>
+                    {x.name}
+                  </li>
+              ))}
             </Typography>
             {/* <SimpleModalWrapped /> */}
           </div>

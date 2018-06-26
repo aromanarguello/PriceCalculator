@@ -8,7 +8,7 @@ class Authentication extends Component {
         const { classes } = this.props
          return (
             <div style={cardStyle.container} >
-                <Paper elevation={3}  style={cardStyle.card}>
+                <Paper elevation={6}  style={cardStyle.card}>
                     <div id='loginFormContainer' style={cardStyle.loginContainer} >
                         <LoginForm />
                     </div>
