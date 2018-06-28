@@ -12,10 +12,10 @@ render(
             {/* <AppBar /> */}
             <Switch>
                 <Route exact path='/' component={AuthContainer} />
-                <Route exact path='/examenes' component={ExamContainer} />
-                <Route exact path='/perfil' component={ProfileContainer} />
-                <Route exact path='/signout' component={Signout} />
-                <Route exact path='/perfil/ordenes' component={OrderCard} />
+                <Route path='/examenes' component={ExamContainer} />
+                <Route path='/perfil' component={ProfileContainer} />
+                <Route path='/signout' component={Signout} />
+                {/* <Route  path='/perfil/ordenes' component={OrderCard} /> */}
             </Switch>
         </div>
         </BrowserRouter>
