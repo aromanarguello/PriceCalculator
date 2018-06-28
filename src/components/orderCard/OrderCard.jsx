@@ -5,6 +5,7 @@ import axios from 'axios';
 import { styles } from './OrderCard.styles'
 import { ProfileCard, OrderCardInfo } from '../index';
 import * as actions from '../../actions/Actions'
+import Infinite from 'react-infinite';
 class OrderCard extends Component {
     constructor(props) {
         super(props)
@@ -33,7 +34,7 @@ class OrderCard extends Component {
                         </aside>
                     </div>
                     <div id='orders' >
-                        <OrderCardInfo orders={this.state.prescription} />
+                       <OrderCardInfo orders={this.state.prescription} />
                     </div>
                 </Paper>
             </div>

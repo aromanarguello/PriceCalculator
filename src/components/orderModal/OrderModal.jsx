@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles, Typography, Modal, Button } from '@material-ui/core';
-
+import { styles, modalContentStyles } from './OrderModal.styles';
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -18,17 +18,7 @@ function getModalStyle() {
   };
 }
 
-const styles = theme => ({
-  paper: {
-    position: 'absolute',
-    width: theme.spacing.unit * 50,
-    backgroundColor: theme.palette.background.paper,
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing.unit * 4,
-  },
-});
-
-class SimpleModal extends Component {
+class OrderModal extends Component {
   state = {
     open: false,
   };
@@ -43,8 +33,6 @@ class SimpleModal extends Component {
 
   render() {
     const { classes } = this.props;
-
-    {console.log('modal', this.props.order.order)}
     return (
       <div>
         <Button onClick={this.handleOpen}>Ver Ordén</Button>
@@ -55,10 +43,16 @@ class SimpleModal extends Component {
           onClose={this.handleClose}
         >
           <div style={getModalStyle()} className={classes.paper}>
-            <Typography variant="title" id="modal-title">
+            <Typography
+              style={modalContentStyles.modalHeader} 
+              variant="title" 
+              id="modal-title">
               Orden: 
             </Typography>
-            <Typography variant="button" id="simple-modal-description">
+            <Typography
+              style={modalContentStyles.modalContainer}
+              variant="button" 
+              id="simple-modal-description">
               {this.props.order.order.map(x => (
                   <li>
                     {x.name}
@@ -73,12 +67,12 @@ class SimpleModal extends Component {
   }
 }
 
-SimpleModal.propTypes = {
+OrderModal.propTypes = {
   classes: PropTypes.object.isRequired,
   order: PropTypes.array.isRequired
 };
 
 // We need an intermediary variable for handling the recursive nesting.
-const SimpleModalWrapped = withStyles(styles)(SimpleModal);
+const SimpleModalWrapped = withStyles(styles)(OrderModal);
 
 export default SimpleModalWrapped;

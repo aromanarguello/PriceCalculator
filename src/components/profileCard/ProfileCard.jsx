@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
 import { styles } from './ProfileCard.styles'
 import { Button } from '@material-ui/core';
 import { fetchProviderInfo, signout } from '../../actions/Actions'
@@ -15,7 +14,9 @@ class ProfileCard extends Component {
     renderAuthButton() {
         if(this.props.auth) {
             return (
-            <Button onClick={ () => this.handleSignout() } style={styles.authButton}>Cerrar Sesion</Button>
+            <Button onClick={ () => this.handleSignout() } style={styles.authButton}>
+                Cerrar Sesion
+            </Button>
             )
         }
     }

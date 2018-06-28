@@ -27,7 +27,11 @@ export const cardStyle = {
         alignItems: 'center'
     },
     inputs: {
-        margin: 50
+        margin: '5px' ,
+        borderTop: 'none',
+        borderRight: 'none',
+        borderLeft: 'none',
+        borderBottom: '1px solid'
     }
 }
 

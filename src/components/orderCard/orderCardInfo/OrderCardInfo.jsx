@@ -6,6 +6,10 @@ import { styles } from './OrderCardInfo.styles'
 import { OrderModal } from '../../index'
 
 class OrderCardInfo extends Component {
+
+    cardDelayAnimation() {
+    }
+
     render() {
         // Wait until fetched data from API has populated state
         if (!this.props.orders) {

@@ -16,7 +16,7 @@ function SimpleTable(props) {
   const { classes } = props;
 
   return (
-    <Infinite containerHeight={600} elementHeight={40}>
+    // <Infinite containerHeight={600} elementHeight={40}>
       <div>
       <Paper className={classes.root}>
         <Table className={classes.table}>
@@ -50,7 +50,7 @@ function SimpleTable(props) {
         </Table>
       </Paper>
       </div>
-    </Infinite>
+    // </Infinite>
   );
 }
 
